@@ -1,0 +1,3 @@
+order_name,created_at,customer_label,total_price_sgd,line_item_count,financial_status,fulfillment_status
+#1011,2025-01-13,Customer A,100.0,1,PAID,FULFILLED
+#1012,2025-02-06,Customer B,76.0,1,PAID,FULFILLED
