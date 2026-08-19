@@ -2,11 +2,10 @@
 Cellar V — Business Health Dashboard
 Communicating with Data (Analytics App path)
 
-Stakeholder: Andre, owner of Cellar V (cellar-v.com.sg), a Singapore wine
-bar & retail shop.
-Decision this dashboard supports: where to focus limited time and budget
-next across the whole business — tightening in-person discount/margin
-discipline, growing membership, or fixing the dormant online channel.
+Stakeholders: Cellar V's owner and its investors.
+Decision this dashboard supports: where the business should prioritize its
+limited time and capital next — tightening in-person discount/margin
+discipline, growing membership, or reviving the dormant online channel.
 
 Data:
 - In-person POS sales report, 2026-01-01 to 2026-08-17 (data/raw/sales_report.csv,
@@ -47,7 +46,7 @@ PLOTLY_LAYOUT = dict(
     hoverlabel=dict(bgcolor="white", font_size=13),
 )
 
-st.set_page_config(page_title="Cellar V — Business Health", page_icon="🍷", layout="wide")
+st.set_page_config(page_title="Cellar V — Business Health", layout="wide")
 
 
 # ---------------------------------------------------------------------------
@@ -127,6 +126,8 @@ nonmember_avg_item = nonmember_sales / nonmember_qty
 member_multiple = member_avg_item / nonmember_avg_item
 
 period_start, period_end = pos["period"].split(" - ")
+period_start_date = period_start.split(" ")[0]
+period_end_date = period_end.split(" ")[0]
 period_days = (pd.Timestamp("2026-08-17") - pd.Timestamp("2026-01-01")).days + 1
 avg_daily_sales = pos_total / period_days
 
@@ -138,70 +139,71 @@ illustrative_recovery = pos_gross * 0.05  # a 5pp tighter discount rate, held ou
 # ---------------------------------------------------------------------------
 # Header
 # ---------------------------------------------------------------------------
-st.title("🍷 Cellar V — Business Health Dashboard")
+st.title("Cellar V — Business Health Dashboard")
 st.caption(
-    "Stakeholder: **Andre, owner of Cellar V** · Decision: where to focus limited time and budget "
-    "next — in-person discount/margin discipline, membership growth, or the dormant online channel · "
-    f"POS data: **{period_start.split(' ')[0]} to {period_end.split(' ')[0]}** · "
-    "Online data: Shopify Admin API, pulled **2026-08-11**"
+    "Prepared for Cellar V's owner and investors · Decision: where the business should prioritize "
+    "its limited time and capital next — in-person discount discipline, membership growth, or the "
+    f"dormant online channel · POS data: **{period_start_date} to {period_end_date}** · "
+    "Online data: Shopify, pulled **2026-08-11**"
 )
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
-    ["🍷 The Full Picture", "💰 Where the Money Comes From", "🎯 Margin & Membership",
-     "💻 Online Channel", "✅ Recommendation", "⚠️ Assumptions & Limitations"]
+    ["The Full Picture", "Where the Money Comes From", "Margin & Membership",
+     "Online Channel", "Recommendation", "Assumptions & Limitations"]
 )
 
 # ---------------------------------------------------------------------------
 # TAB 1 — The Full Picture
 # ---------------------------------------------------------------------------
 with tab1:
-    st.subheader("Cellar V is a thriving in-person wine bar with a dormant online channel")
+    st.subheader("The wine bar is healthy. The website isn't part of that story yet.")
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("In-person total sales (7.5 mo)", f"SGD {pos_total:,.0f}")
-    c2.metric("Gross profit (7.5 mo)", f"SGD {pos_profit:,.0f}", help=f"{gross_margin_net:.0%} margin on net sales")
+    c1.metric("In-person sales, last 7.5 months", f"SGD {pos_total:,.0f}")
+    c2.metric("Gross profit, last 7.5 months", f"SGD {pos_profit:,.0f}", help=f"{gross_margin_net:.0%} margin on net sales")
     c3.metric("Transactions", f"{pos_txns:,}", help=f"SGD {pos_avg_txn:,.2f} average sale")
-    c4.metric("Guests served (pax)", f"{pos_pax:,}")
+    c4.metric("Guests served", f"{pos_pax:,}")
 
-    st.markdown("##### Two channels, two very different stories")
+    st.markdown("##### Two channels, two very different results")
     col1, col2 = st.columns(2)
     with col1:
-        st.success(
-            f"**In-person (POS), {period_start.split(' ')[0]} – {period_end.split(' ')[0]}**\n\n"
-            f"### SGD {pos_total:,.0f}\n"
-            f"{pos_txns:,} transactions · {pos_pax:,} guests · SGD {avg_daily_sales:,.0f}/day average"
-        )
+        with st.container(border=True):
+            st.markdown(f"**In-person (POS), {period_start_date} – {period_end_date}**")
+            st.markdown(f"### SGD {pos_total:,.0f}")
+            st.markdown(f"{pos_txns:,} transactions · {pos_pax:,} guests · about SGD {avg_daily_sales:,.0f} a day")
     with col2:
-        st.error(
-            f"**Online (Shopify), 3-year lifetime**\n\n"
-            f"### SGD {lifetime_revenue:,.0f}\n"
-            f"{lifetime_orders} orders total · nothing in the last {days_since_last_sale} days"
-        )
+        with st.container(border=True):
+            st.markdown("**Online (Shopify), 3-year lifetime**")
+            st.markdown(f"### SGD {lifetime_revenue:,.0f}")
+            st.markdown(f"{lifetime_orders} orders total · nothing in the last {days_since_last_sale} days")
 
-    st.info(
-        f"The online store's **entire 3-year revenue history (SGD {lifetime_revenue:,.0f})** is less than "
-        f"half of what the physical wine bar takes in on a **single average day** (SGD {avg_daily_sales:,.0f}). "
-        f"The business is healthy — it just isn't the online channel driving it. That reframes the question "
-        f"from *'how do we save the online store'* to *'where does another hour of Andre's attention return "
-        f"the most, across the whole business.'*"
-    )
+    with st.container(border=True):
+        st.markdown(
+            f"Put simply: the online store's entire three-year history — SGD {lifetime_revenue:,.0f} — "
+            f"doesn't add up to half of what the wine bar takes in on a single average day "
+            f"(about SGD {avg_daily_sales:,.0f}). Cellar V isn't a business in trouble; it's a business "
+            f"whose website hasn't caught up with it yet. That changes the question this dashboard is "
+            f"really answering — not *how do we fix the online store*, but *where should the next dollar "
+            f"and the next hour of attention go, across the whole business.*"
+        )
 
 # ---------------------------------------------------------------------------
 # TAB 2 — Where the Money Comes From
 # ---------------------------------------------------------------------------
 with tab2:
-    st.subheader("Red wine, sold in person, is the business")
+    st.subheader("Red wine, sold in person, is what Cellar V actually is")
 
     top_cat = pos_category.iloc[0]
     st.markdown(
-        f"**{top_cat['tab']}** alone accounts for **SGD {top_cat['gross_sales_sgd']:,.0f}** "
-        f"({top_cat['gross_sales_sgd']/pos_gross:.0%} of gross sales) across {int(top_cat['quantity_sold'])} "
-        f"items sold — more than every other category combined."
+        f"{top_cat['tab']} wine alone brought in SGD {top_cat['gross_sales_sgd']:,.0f} — "
+        f"{top_cat['gross_sales_sgd']/pos_gross:.0%} of every sales dollar — across "
+        f"{int(top_cat['quantity_sold'])} bottles and glasses. That's more than every other "
+        f"category put together."
     )
 
     left, right = st.columns(2)
     with left:
-        st.markdown("##### Gross sales by category (7.5 months)")
+        st.markdown("##### Gross sales by category, last 7.5 months")
         fig_cat = px.bar(
             pos_category, x="gross_sales_sgd", y="tab", orientation="h",
             labels={"gross_sales_sgd": "Gross sales (SGD)", "tab": ""},
@@ -229,27 +231,27 @@ with tab2:
         st.plotly_chart(fig_top, use_container_width=True, theme=None)
 
     st.caption(
-        f"Catalog breadth for context: Andre's POS product list carries {int(pos_catalog['sku_count'].sum())} "
-        f"items across {len(pos_catalog)} tabs — but the top 10 products above already account for "
-        f"SGD {top10['gross_sales_sgd'].sum():,.0f} ({top10['gross_sales_sgd'].sum()/pos_gross:.0%} of gross sales), "
-        f"almost entirely Italian and French reds."
+        f"For scale: the full product list runs to {int(pos_catalog['sku_count'].sum())} items across "
+        f"{len(pos_catalog)} categories. Even so, the ten best-selling products above already account "
+        f"for SGD {top10['gross_sales_sgd'].sum():,.0f} — about {top10['gross_sales_sgd'].sum()/pos_gross:.0%} "
+        f"of all sales — and nearly all of them are Italian or French reds."
     )
 
 # ---------------------------------------------------------------------------
 # TAB 3 — Margin & Membership
 # ---------------------------------------------------------------------------
 with tab3:
-    st.subheader("The real margin lever is discounting and membership, not the website")
+    st.subheader("The bigger opportunity is in the room, not on the website")
 
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Discount given away", f"SGD {pos_discount:,.0f}", delta=f"{discount_rate:.1%} of gross sales", delta_color="inverse")
-    c2.metric("Gross margin (net sales)", f"{gross_margin_net:.0%}")
-    c3.metric("Member vs non-member value/item", f"{member_multiple:.1f}×", help=f"SGD {member_avg_item:,.2f} vs SGD {nonmember_avg_item:,.2f} per item sold")
-    c4.metric("New member sign-ups (7.5 mo)", f"{pos_signups}", help="≈2 per month")
+    c2.metric("Gross margin, net sales", f"{gross_margin_net:.0%}")
+    c3.metric("Member vs non-member value per item", f"{member_multiple:.1f}x", help=f"SGD {member_avg_item:,.2f} vs SGD {nonmember_avg_item:,.2f} per item sold")
+    c4.metric("New members, last 7.5 months", f"{pos_signups}", help="About 2 a month")
 
     left, right = st.columns(2)
     with left:
-        st.markdown("##### Discount rate by category (share of that category's gross sales)")
+        st.markdown("##### Discount rate by category")
         disc_sorted = pos_category.sort_values("discount_rate", ascending=True)
         fig_disc = px.bar(
             disc_sorted, x="discount_rate", y="tab", orientation="h",
@@ -262,7 +264,7 @@ with tab3:
         st.plotly_chart(fig_disc, use_container_width=True, theme=None)
 
     with right:
-        st.markdown("##### Average value per item sold: member vs non-member")
+        st.markdown("##### Average value per item: member vs non-member")
         member_df = pd.DataFrame({
             "group": ["Member", "Non-member"],
             "avg_value": [member_avg_item, nonmember_avg_item],
@@ -274,24 +276,26 @@ with tab3:
         fig_mem.update_layout(**PLOTLY_LAYOUT, height=340, showlegend=False)
         st.plotly_chart(fig_mem, use_container_width=True, theme=None)
 
-    st.warning(
-        f"Cellar V gave away **SGD {pos_discount:,.0f}** in discounts over the period — **{discount_rate:.1%} of "
-        f"gross sales** — with **Liquor** and **Champagne/Sparkling** discounted proportionally the most "
-        f"(over a third and a quarter of their gross sales respectively), while **Food** is barely discounted "
-        f"at all (under 2%). Meanwhile, members spend **{member_multiple:.1f}×** more per item than non-members, "
-        f"yet only **{pos_signups}** new members signed up in 7.5 months — roughly 2 a month."
-    )
+    with st.container(border=True):
+        st.markdown(
+            f"Cellar V gave away SGD {pos_discount:,.0f} in discounts over the period — roughly one "
+            f"dollar in five of gross sales. Liquor and Champagne/Sparkling are discounted hardest, "
+            f"each losing close to a quarter to a third of their value to markdowns, while food is "
+            f"barely discounted at all. Meanwhile, members spend {member_multiple:.1f} times more per "
+            f"item than non-members — yet only {pos_signups} people joined as members over seven and a "
+            f"half months, about two a month. That's a lever that's mostly sitting untouched."
+        )
 
 # ---------------------------------------------------------------------------
 # TAB 4 — Online Channel
 # ---------------------------------------------------------------------------
 with tab4:
-    st.subheader("The online store: a smaller but still real quick win")
+    st.subheader("The website is a smaller fix, but still a real one")
 
     c1, c2, c3 = st.columns(3)
-    c1.metric("Active SKUs listed", f"{n_active}")
-    c2.metric("Active SKUs out of stock", f"{n_oos}", delta=f"{oos_rate:.0%} of catalog", delta_color="inverse")
-    c3.metric("'Best seller'-tagged SKUs out of stock", f"{n_bestsellers_oos} of {n_bestsellers}",
+    c1.metric("Active listings", f"{n_active}")
+    c2.metric("Listings out of stock", f"{n_oos}", delta=f"{oos_rate:.0%} of catalog", delta_color="inverse")
+    c3.metric("'Best seller' listings out of stock", f"{n_bestsellers_oos} of {n_bestsellers}",
               delta=f"{bestseller_oos_rate:.0%}", delta_color="inverse")
 
     left, right = st.columns(2)
@@ -308,7 +312,7 @@ with tab4:
         st.plotly_chart(fig, use_container_width=True, theme=None)
 
     with right:
-        st.markdown("##### Stock status by price tier (online catalog)")
+        st.markdown("##### Stock status by price tier, online catalog")
         tier_status = (
             active.groupby(["price_tier", "in_stock"], observed=True).size()
             .reset_index(name="count")
@@ -325,12 +329,15 @@ with tab4:
         fig2.update_layout(**PLOTLY_LAYOUT, height=320, legend_title_text="")
         st.plotly_chart(fig2, use_container_width=True, theme=None)
 
-    st.info(
-        f"**{n_bestsellers_oos} of {n_bestsellers}** products Cellar V tags as *'Best seller'* on Shopify "
-        f"show zero inventory, and **{purchase_rate:.0%}** of the {total_customers} registered online accounts "
-        f"have ever purchased. This is a real, low-cost fix — but at SGD {lifetime_revenue:,.0f} lifetime, "
-        f"it's a rounding error next to the in-person business (see *The Full Picture*)."
-    )
+    with st.container(border=True):
+        st.markdown(
+            f"{n_bestsellers_oos} of the {n_bestsellers} products Cellar V flags as a 'Best seller' "
+            f"online are currently out of stock, and only {purchase_rate:.0%} of the {total_customers} "
+            f"people who've created an account have ever completed a purchase. Fixing this is "
+            f"inexpensive and straightforward — it just shouldn't be first in line. At "
+            f"SGD {lifetime_revenue:,.0f} lifetime, it's a rounding error next to what the wine bar "
+            f"does in person (see *The Full Picture*)."
+        )
 
 # ---------------------------------------------------------------------------
 # TAB 5 — Recommendation
@@ -339,28 +346,29 @@ with tab5:
     st.subheader("Recommendation")
     st.markdown(
         f"""
-**Fix in-person margin leakage and membership conversion first — that's where the dollars are.
-Restocking the online catalog is still worth doing, but as a low-cost second step.**
+The clearest opportunity isn't the website — it's tightening how the business runs day to day, in the room.
 
-- **What:**
-  1. Tighten discount discipline on **Liquor** and **Champagne/Sparkling** — the two categories
-     discounted proportionally hardest (over a third and a quarter of their gross sales) — starting
-     with a review of what "Custom Discount" is actually being applied to and when.
-  2. Turn membership sign-up into an active ask at checkout, not a passive option. Members spend
-     **{member_multiple:.1f}×** more per item than non-members, but only **{pos_signups}** people
-     joined in 7.5 months against **{pos_txns:,}** transactions.
-  3. Separately, restock or unpublish the **{n_bestsellers_oos}** out-of-stock "Best seller" SKUs
-     on Shopify — a cheap fix, just not the highest-leverage one.
-- **Who:** Andre and front-of-house staff for the discount/membership ask (a daily operating habit,
-  not a one-off project); Andre alone for the Shopify catalog cleanup.
-- **Metric to watch:** the **category discount rate** for Liquor and Champagne/Sparkling (currently
-  well above the Food category's under-2% baseline), and **new member sign-ups per month** (currently
-  ≈2). On the online side, the **out-of-stock rate** (currently {oos_rate:.0%}).
-- **Why this ordering:** a modest 5-percentage-point tightening of the overall discount rate — from
-  {discount_rate:.1%} toward roughly {discount_rate - 0.05:.0%} — would recover on the order of
-  **SGD {illustrative_recovery:,.0f}** over a comparable period *(illustrative, not a forecast — see
-  Assumptions)*, dwarfing the online channel's entire 3-year revenue of SGD {lifetime_revenue:,.0f}.
-  The website fix is real and worth doing, but it shouldn't be first in line for Andre's time.
+**For the owner:**
+1. Rein in discounting on Liquor and Champagne/Sparkling specifically — the two categories giving
+   away the largest share of their value, roughly a quarter to a third — starting with a plain review
+   of what "Custom Discount" is meant to cover and when staff should actually use it.
+2. Make membership sign-up part of the conversation at checkout, rather than something guests have to
+   ask about themselves. Members already spend {member_multiple:.1f} times more per item than
+   non-members, but only {pos_signups} people joined in seven and a half months against
+   {pos_txns:,} transactions — most guests are simply never being asked.
+3. Separately, restock or take down the {n_bestsellers_oos} out-of-stock "Best seller" listings on
+   Shopify. It's a cheap, quick fix — just not the one that moves the needle most.
+
+**For investors, the case for prioritizing this first:** a modest five-percentage-point tightening of
+the discount rate — from {discount_rate:.1%} toward roughly {discount_rate - 0.05:.0%} — would recover
+on the order of SGD {illustrative_recovery:,.0f} over a comparable period *(an illustration of scale,
+not a forecast — see Assumptions)*. That single lever is worth several times the online channel's
+entire three-year revenue of SGD {lifetime_revenue:,.0f}. The website is worth fixing, but it isn't
+where the return is.
+
+**What to watch:** the discount rate for Liquor and Champagne/Sparkling specifically (today, well
+above food's under-2% baseline), new member sign-ups per month (today, about two), and — lower
+priority — the online out-of-stock rate (today, {oos_rate:.0%}).
 """
     )
 
@@ -371,33 +379,32 @@ with tab6:
     st.subheader("Assumptions & Limitations")
     st.markdown(
         f"""
-- **The POS window is partial-year and not annualized.** Figures cover **{period_start.split(' ')[0]} to
-  {period_end.split(' ')[0]}** (about 7.5 months) only. Any recovery estimate in the Recommendation tab is
-  explicitly **illustrative** — it applies today's discount rate math to today's sales base, not a forecast
-  of a full year or of how customers would react to less discounting.
-- **"Custom Discount" is one undifferentiated bucket** in the POS export (SGD {pos_discount:,.0f} across
-  972 applications). It may include happy-hour set pricing, staff comps, corporate deals, and genuine
-  promotions all mixed together — so the {discount_rate:.1%} figure is a ceiling on discretionary discounting,
-  not proof that any specific promotion was a mistake.
-- **Member-vs-non-member is a per-item average, not a per-customer or per-visit figure**, and it's
-  correlational: members may simply be more affluent or more frequent regulars who would spend more
-  regardless of membership status. The {member_multiple:.1f}× gap is a reason to test a more active
-  sign-up ask, not proof that membership itself causes higher spend.
-- **The online and in-person catalogs are separate systems** (Shopify for online retail, a different POS
-  for the wine bar) with different pricing structures and only partial SKU overlap — they are not merged
-  into one blended catalog anywhere in this dashboard, and the in-person product list has no live stock
-  data (unlike the online catalog), so the same out-of-stock analysis can't be run for the physical bar.
-- **Inventory (online) is a single snapshot**, taken 2026-08-11, not a time series — some items may already
-  be restocked by the time this is reviewed; the *rate* (~{oos_rate:.0%} of active SKUs) is the durable
-  signal, not any one product's status on that exact date.
-- **No causal claim on why online conversion stalled.** Stock-outs correlate with the online conversion
-  drought but other explanations (traffic, pricing, checkout friction) aren't ruled out — restocking is the
-  lowest-cost, highest-confidence first test for that channel specifically, not a guaranteed fix.
+- This covers {period_start_date} to {period_end_date} — about seven and a half months, not a full
+  year. The recovery figure in the Recommendation is an illustration of what today's numbers imply,
+  not a forecast of a full year or of how guests would actually respond to less discounting.
+- "Custom Discount" is a single, undifferentiated line in the POS export (SGD {pos_discount:,.0f}
+  across 972 uses). It likely mixes happy-hour pricing, staff comps, corporate deals, and genuine
+  promotions together, so the {discount_rate:.1%} figure is a ceiling on discretionary discounting —
+  not evidence that any one promotion was a mistake.
+- The member-versus-non-member comparison is a per-item average, not a per-customer or per-visit
+  figure, and it's correlational rather than causal: members may simply be more frequent or more
+  affluent regulars who'd spend more regardless of membership status. The {member_multiple:.1f}x gap
+  is a reason to test a more active sign-up ask, not proof that membership itself drives spending.
+- The online and in-person catalogs run on separate systems with different pricing and only partial
+  overlap in what they sell, so they're never merged into one blended view here. The in-person product
+  list also has no live stock data, so the out-of-stock analysis in this dashboard applies to the
+  online store only.
+- Online inventory is a single snapshot from 2026-08-11, not a time series — some items may already be
+  restocked by the time this is read. The rate (roughly {oos_rate:.0%} of active listings) is the
+  signal that matters, not any one product's status on that particular date.
+- Stock-outs correlate with the online channel's conversion drought, but other explanations — traffic,
+  pricing, checkout friction — haven't been ruled out. Restocking is the cheapest, most confident first
+  test for that channel specifically, not a guaranteed fix.
 """
     )
 
 st.divider()
 st.caption(
     "Cellar V · Communicating with Data (MSBA) · Data sources: in-person POS sales report "
-    f"({period_start.split(' ')[0]}–{period_end.split(' ')[0]}) and Cellar V Shopify Admin API (pulled 2026-08-11)"
+    f"({period_start_date}–{period_end_date}) and Cellar V Shopify Admin API (pulled 2026-08-11)"
 )
