@@ -209,11 +209,12 @@ with tab2:
             labels={"gross_sales_sgd": "Gross sales (SGD)", "tab": ""},
             text=pos_category["gross_sales_sgd"].map(lambda v: f"SGD {v:,.0f}"),
         )
-        fig_cat.update_traces(marker_color=BLUE, textposition="outside",
+        fig_cat.update_traces(marker_color=BLUE, textposition="outside", cliponaxis=False,
                                hovertemplate="%{y}<br>SGD %{x:,.0f}<extra></extra>")
         fig_cat.update_layout(**PLOTLY_LAYOUT, height=360, showlegend=False)
-        fig_cat.update_layout(margin=dict(l=110, r=60, t=40, b=10))
+        fig_cat.update_layout(margin=dict(l=110, r=90, t=40, b=10))
         fig_cat.update_yaxes(categoryorder="total ascending")
+        fig_cat.update_xaxes(range=[0, pos_category["gross_sales_sgd"].max() * 1.22])
         st.plotly_chart(fig_cat, use_container_width=True, theme=None)
 
     with right:
