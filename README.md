@@ -1,10 +1,19 @@
-# Cellar V — Online Store Health Dashboard
+# Cellar V — Business Health Dashboard
 
 Analytics App submission for the Quantic MSBA **Communicating with Data** project.
 
 **Stakeholder:** Andre, owner of Cellar V (cellar-v.com.sg), a Singapore wine bar & retail shop.
-**Decision:** where to focus limited time/budget first — fixing the catalog/inventory, or paying for more traffic — to get the online store converting again.
-**Data:** pulled live from the Cellar V Shopify Admin API on 2026-08-11 (products, orders, customers, monthly sales). Order and customer records are anonymized — no real names or emails — since this may be shared publicly for grading.
+**Decision:** where to focus limited time/budget next across the whole business — tightening
+in-person discount/margin discipline, growing membership, or fixing the dormant online channel.
+**Data:**
+- In-person POS sales report, 2026-01-01 to 2026-08-17 (`data/raw/sales_report.csv`), parsed into
+  clean `data/pos_*.csv` / `data/pos_summary.json` files by `data/build_data.py`.
+- Cellar V Shopify Admin API (online products, orders, customers, monthly sales), pulled 2026-08-11.
+
+Order/customer records from the online store are anonymized — no real names or emails — since this
+may be shared publicly for grading. **Note:** the POS data does include real revenue, profit, and
+discount figures for the business — worth reviewing before making the deployed link/repo public if
+you'd rather not disclose those.
 
 ## Run it locally
 
@@ -18,23 +27,36 @@ streamlit run app.py
 
 Opens at `http://localhost:8501`.
 
+To refresh the POS-derived files after updating the raw exports in `data/raw/`:
+
+```bash
+python3 data/build_data.py
+```
+
 ## What's inside
 
-- `app.py` — the Streamlit dashboard (4 tabs: The Problem, Catalog & Inventory, Recommendation, Assumptions & Limitations)
-- `data/products.csv` — full live product catalog (70 SKUs minus one test/draft listing), with price, inventory, tags
-- `data/orders.csv` — the store's 2 lifetime online orders (customer names anonymized)
-- `data/monthly_sales.csv` — 37 months of online sales totals
-- `data/customers_summary.csv` — customer signups vs. customers who ever purchased, by month
+- `app.py` — the Streamlit dashboard, 6 tabs: The Full Picture, Where the Money Comes From,
+  Margin & Membership, Online Channel, Recommendation, Assumptions & Limitations
+- `data/raw/` — the original POS exports (product list, sales report) as downloaded
+- `data/build_data.py` — parses the raw sales report into the clean `pos_*` files below
+- `data/pos_summary.json` — top-line POS KPIs (gross/net/total sales, profit, transactions, etc.)
+- `data/pos_category_sales.csv`, `pos_top_products.csv`, `pos_discounts.csv`, `pos_payment_methods.csv`,
+  `pos_catalog_composition.csv` — derived POS breakdowns
+- `data/products.csv`, `orders.csv`, `monthly_sales.csv`, `customers_summary.csv` — the online
+  (Shopify) side, from the earlier analysis
 
 ## The headline finding
 
-Cellar V's Shopify store has converted **2 online orders (SGD 176) in 3 years**, with nothing
-in the last 551 days, while **44% of its 64 active product listings are out of stock** —
-including a quarter of the SKUs it tags as "Best seller." The dashboard argues for fixing
-availability before spending on ads to drive more traffic.
+The physical wine bar is a real, healthy business — **SGD 105,770 in sales across 807 transactions**
+over 7.5 months (about SGD 462/day), with a **64.8% gross margin** on net sales — while the online
+Shopify store's entire **3-year revenue history (SGD 176)** is less than half of one average day's
+in-person sales. The bigger levers are **in-person discount discipline** (SGD 23,580 given away,
+19.5% of gross sales, concentrated in Liquor and Champagne/Sparkling) and **membership conversion**
+(members spend 2.2× more per item, but only 16 people signed up in 7.5 months). Fixing the online
+store's stock-outs is still worth doing — just not first.
 
 ## Next steps for submission
 
 - Deploy to [Streamlit Community Cloud](https://streamlit.io/cloud) for a public link (preferred by the rubric), or push this folder to a public GitHub repo.
-- Record the 5-10 min presentation walking through the dashboard and the recommendation.
+- Record the 5-10 min presentation walking through the dashboard and the recommendation — the earlier `presentation/script.md` will need updating for the new narrative.
 - Include a link to the deployed app (or repo) in the submitted PDF, per the assignment's Submission & Grading section.

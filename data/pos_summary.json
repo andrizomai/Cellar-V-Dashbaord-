@@ -1,0 +1,21 @@
+{
+  "gross_sales": "120616.81",
+  "total_discount": "-23579.65",
+  "net_sales": "97037.16",
+  "total_gst": "8733.34",
+  "total_sales": "105770.50",
+  "total_cost": "34178.33",
+  "gross_profit": "62858.83",
+  "transactions": "807",
+  "avg_sale_per_transaction": "131.07",
+  "dine_in_takeaway": "83.2%/16.8%",
+  "total_pax": "1763",
+  "customer_signups": "16",
+  "member_nonmember_sales": "58906.15/46864.35",
+  "member_nonmember_qty": "292/515",
+  "period": "01/01/2026 00:00:00 - 17/08/2026 23:59:59",
+  "member_sales_sgd": 58906.15,
+  "nonmember_sales_sgd": 46864.35,
+  "member_qty": 292,
+  "nonmember_qty": 515
+}

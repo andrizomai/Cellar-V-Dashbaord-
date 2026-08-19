@@ -2,3 +2,9 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Raw POS exports contain unredacted per-product cost/profit data — kept
+# local only. The dashboard runs off the derived data/pos_*.csv / .json
+# files, which are committed. Remove this line if you're fine publishing
+# the raw ledger too.
+data/raw/
