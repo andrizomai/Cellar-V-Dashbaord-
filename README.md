@@ -2,12 +2,13 @@
 
 Analytics App submission for the Quantic MSBA **Communicating with Data** project.
 
-**Stakeholder:** Andre, owner of Cellar V (cellar-v.com.sg), a Singapore wine bar & retail shop.
-**Decision:** where to focus limited time/budget next across the whole business — tightening
+**Stakeholders:** Cellar V's owner and its investors (cellar-v.com.sg, a Singapore wine bar & retail shop).
+**Decision:** where to focus limited time/capital next across the whole business — tightening
 in-person discount/margin discipline, growing membership, or fixing the dormant online channel.
 **Data:**
-- In-person POS sales report, 2026-01-01 to 2026-08-17 (`data/raw/sales_report.csv`), parsed into
-  clean `data/pos_*.csv` / `data/pos_summary.json` files by `data/build_data.py`.
+- In-person POS sales reports, full year 2025 plus 2026 year-to-date through 2026-08-17
+  (`data/raw/sales_report_2025.csv`, `sales_report_2026.csv`), combined into clean `data/pos_*.csv` /
+  `pos_summary.json` / `pos_by_year.json` files by `data/build_data.py`.
 - Cellar V Shopify Admin API (online products, orders, customers, monthly sales), pulled 2026-08-11.
 
 Order/customer records from the online store are anonymized — no real names or emails — since this
@@ -37,9 +38,10 @@ python3 data/build_data.py
 
 - `app.py` — the Streamlit dashboard, 6 tabs: The Full Picture, Where the Money Comes From,
   Margin & Membership, Online Channel, Recommendation, Assumptions & Limitations
-- `data/raw/` — the original POS exports (product list, sales report) as downloaded
-- `data/build_data.py` — parses the raw sales report into the clean `pos_*` files below
-- `data/pos_summary.json` — top-line POS KPIs (gross/net/total sales, profit, transactions, etc.)
+- `data/raw/` — the original POS exports (product list, 2025 sales report, 2026 sales report) as downloaded
+- `data/build_data.py` — parses and combines both years' sales reports into the clean `pos_*` files below
+- `data/pos_summary.json` — combined top-line POS KPIs (gross/net/total sales, profit, transactions, etc.)
+- `data/pos_by_year.json` — the same KPIs broken out separately by year, for the year-over-year view
 - `data/pos_category_sales.csv`, `pos_top_products.csv`, `pos_discounts.csv`, `pos_payment_methods.csv`,
   `pos_catalog_composition.csv` — derived POS breakdowns
 - `data/products.csv`, `orders.csv`, `monthly_sales.csv`, `customers_summary.csv` — the online
@@ -47,13 +49,14 @@ python3 data/build_data.py
 
 ## The headline finding
 
-The physical wine bar is a real, healthy business — **SGD 105,770 in sales across 807 transactions**
-over 7.5 months (about SGD 462/day), with a **64.8% gross margin** on net sales — while the online
-Shopify store's entire **3-year revenue history (SGD 176)** is less than half of one average day's
-in-person sales. The bigger levers are **in-person discount discipline** (SGD 23,580 given away,
-19.5% of gross sales, concentrated in Liquor and Champagne/Sparkling) and **membership conversion**
-(members spend 2.2× more per item, but only 16 people signed up in 7.5 months). Fixing the online
-store's stock-outs is still worth doing — just not first.
+The physical wine bar is a real, healthy business — **SGD 293,467 in sales across 2,363 transactions**
+from January 2025 through August 2026 (about SGD 494/day), with a **65% gross margin** on net sales —
+while the online Shopify store's entire **3-year revenue history (SGD 176)** is less than half of one
+average day's in-person sales. The bigger levers are **in-person discount discipline** (SGD 66,613
+given away, 19.8% of gross sales — consistent in both 2025 and 2026 separately — concentrated in
+Liquor and Champagne/Sparkling) and **membership conversion** (members spend 2.5× more per item, but
+only 41 people signed up as members across the full period). Fixing the online store's stock-outs is
+still worth doing — just not first.
 
 ## Next steps for submission
 

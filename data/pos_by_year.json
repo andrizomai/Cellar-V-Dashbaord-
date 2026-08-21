@@ -1,0 +1,32 @@
+[
+  {
+    "label": "2025",
+    "period": "01/01/2025 00:00:00 - 31/12/2025 23:59:59",
+    "gross_sales_sgd": 215231.65,
+    "total_sales_sgd": 187696.23,
+    "total_discount_sgd": -43033.27,
+    "discount_rate": -0.19993932119184143,
+    "gross_profit_sgd": 112579.15,
+    "net_sales_sgd": 172198.38,
+    "gross_margin_net": 0.6537758949880945,
+    "transactions": 1556,
+    "avg_sale_per_transaction": 120.62739717223651,
+    "total_pax": 2855,
+    "customer_signups": 25
+  },
+  {
+    "label": "2026 YTD",
+    "period": "01/01/2026 00:00:00 - 17/08/2026 23:59:59",
+    "gross_sales_sgd": 120616.81,
+    "total_sales_sgd": 105770.5,
+    "total_discount_sgd": -23579.65,
+    "discount_rate": -0.19549223694441928,
+    "gross_profit_sgd": 62858.83,
+    "net_sales_sgd": 97037.16,
+    "gross_margin_net": 0.647781015025584,
+    "transactions": 807,
+    "avg_sale_per_transaction": 131.06629491945478,
+    "total_pax": 1763,
+    "customer_signups": 16
+  }
+]

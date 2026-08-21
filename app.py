@@ -8,8 +8,10 @@ limited time and capital next — tightening in-person discount/margin
 discipline, growing membership, or reviving the dormant online channel.
 
 Data:
-- In-person POS sales report, 2026-01-01 to 2026-08-17 (data/raw/sales_report.csv,
-  parsed by data/build_data.py into the pos_*.csv / pos_summary.json files).
+- In-person POS sales reports, full year 2025 plus year-to-date 2026 through
+  2026-08-17 (data/raw/sales_report_2025.csv, sales_report_2026.csv), parsed
+  and combined by data/build_data.py into the pos_*.csv / pos_summary.json /
+  pos_by_year.json files.
 - Cellar V Shopify Admin API (online products, orders, customers, sales),
   pulled 2026-08-11. Order/customer records are anonymized (no real names
   or emails) since this app may be shared publicly for grading.
@@ -71,16 +73,20 @@ def load_online_data():
 def load_pos_data():
     with open(DATA_DIR / "pos_summary.json") as f:
         summary = json.load(f)
+    with open(DATA_DIR / "pos_by_year.json") as f:
+        by_year = json.load(f)
     category = pd.read_csv(DATA_DIR / "pos_category_sales.csv")
     top_products = pd.read_csv(DATA_DIR / "pos_top_products.csv")
     discounts = pd.read_csv(DATA_DIR / "pos_discounts.csv")
     payment = pd.read_csv(DATA_DIR / "pos_payment_methods.csv")
     catalog_comp = pd.read_csv(DATA_DIR / "pos_catalog_composition.csv")
-    return summary, category, top_products, discounts, payment, catalog_comp
+    return summary, by_year, category, top_products, discounts, payment, catalog_comp
 
 
 products, orders, monthly, customers = load_online_data()
-pos, pos_category, pos_top_products, pos_discounts, pos_payment, pos_catalog = load_pos_data()
+pos, pos_by_year, pos_category, pos_top_products, pos_discounts, pos_payment, pos_catalog = load_pos_data()
+by_year = pd.DataFrame(pos_by_year)
+by_year["discount_rate"] = by_year["discount_rate"].abs()
 
 # --- online-channel derived stats ------------------------------------------
 active = products[products["status"] == "ACTIVE"].copy()
@@ -128,8 +134,11 @@ member_multiple = member_avg_item / nonmember_avg_item
 period_start, period_end = pos["period"].split(" - ")
 period_start_date = period_start.split(" ")[0]
 period_end_date = period_end.split(" ")[0]
-period_days = (pd.Timestamp("2026-08-17") - pd.Timestamp("2026-01-01")).days + 1
+period_start_ts = pd.to_datetime(period_start_date, dayfirst=True)
+period_end_ts = pd.to_datetime(period_end_date, dayfirst=True)
+period_days = (period_end_ts - period_start_ts).days + 1
 avg_daily_sales = pos_total / period_days
+period_span_label = "January 2025 through August 2026"  # 2025 full year + 2026 YTD
 
 pos_category = pos_category.sort_values("gross_sales_sgd", ascending=False)
 pos_category["discount_rate"] = pos_category["discount_sgd"].abs() / pos_category["gross_sales_sgd"]
@@ -143,8 +152,8 @@ st.title("Cellar V — Business Health Dashboard")
 st.caption(
     "Prepared for Cellar V's owner and investors · Decision: where the business should prioritize "
     "its limited time and capital next — in-person discount discipline, membership growth, or the "
-    f"dormant online channel · POS data: **{period_start_date} to {period_end_date}** · "
-    "Online data: Shopify, pulled **2026-08-11**"
+    f"dormant online channel · POS data: **{period_start_date} to {period_end_date}** "
+    "(full year 2025 plus 2026 year-to-date) · Online data: Shopify, pulled **2026-08-11**"
 )
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
@@ -159,8 +168,8 @@ with tab1:
     st.subheader("The wine bar is healthy. The website isn't part of that story yet.")
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("In-person sales, last 7.5 months", f"SGD {pos_total:,.0f}")
-    c2.metric("Gross profit, last 7.5 months", f"SGD {pos_profit:,.0f}", help=f"{gross_margin_net:.0%} margin on net sales")
+    c1.metric(f"In-person sales, {period_span_label}", f"SGD {pos_total:,.0f}")
+    c2.metric("Gross profit, same period", f"SGD {pos_profit:,.0f}", help=f"{gross_margin_net:.0%} margin on net sales")
     c3.metric("Transactions", f"{pos_txns:,}", help=f"SGD {pos_avg_txn:,.2f} average sale")
     c4.metric("Guests served", f"{pos_pax:,}")
 
@@ -187,6 +196,25 @@ with tab1:
             f"and the next hour of attention go, across the whole business.*"
         )
 
+    st.markdown("##### By year")
+    yr_cols = st.columns(len(by_year))
+    for col, (_, row) in zip(yr_cols, by_year.iterrows()):
+        with col:
+            with st.container(border=True):
+                label = "2025 (full year)" if row["label"] == "2025" else "2026 (year to date, through Aug 17)"
+                st.markdown(f"**{label}**")
+                st.markdown(f"### SGD {row['gross_sales_sgd']:,.0f}")
+                st.markdown(
+                    f"{int(row['transactions']):,} transactions · SGD {row['avg_sale_per_transaction']:,.2f} "
+                    f"average sale · {row['discount_rate']:.1%} discount rate"
+                )
+    st.caption(
+        "2026 is a partial year, so its total isn't directly comparable to 2025's full-year total — "
+        "but the rate metrics (average sale, discount rate) land in a similar range in both years, "
+        "which is exactly what makes the discounting pattern on the Margin & Membership tab worth "
+        "acting on: it isn't a one-off, it shows up year after year."
+    )
+
 # ---------------------------------------------------------------------------
 # TAB 2 — Where the Money Comes From
 # ---------------------------------------------------------------------------
@@ -203,7 +231,7 @@ with tab2:
 
     left, right = st.columns(2)
     with left:
-        st.markdown("##### Gross sales by category, last 7.5 months")
+        st.markdown(f"##### Gross sales by category, {period_span_label}")
         fig_cat = px.bar(
             pos_category, x="gross_sales_sgd", y="tab", orientation="h",
             labels={"gross_sales_sgd": "Gross sales (SGD)", "tab": ""},
@@ -239,7 +267,7 @@ with tab2:
         f"For scale: the full product list runs to {int(pos_catalog['sku_count'].sum())} items across "
         f"{len(pos_catalog)} categories. Even so, the ten best-selling products above already account "
         f"for SGD {top10['gross_sales_sgd'].sum():,.0f} — about {top10['gross_sales_sgd'].sum()/pos_gross:.0%} "
-        f"of all sales — and nearly all of them are Italian or French reds."
+        f"of all sales — and nearly all of them are Italian reds."
     )
 
 # ---------------------------------------------------------------------------
@@ -252,7 +280,7 @@ with tab3:
     c1.metric("Discount given away", f"SGD {pos_discount:,.0f}", delta=f"{discount_rate:.1%} of gross sales", delta_color="inverse")
     c2.metric("Gross margin, net sales", f"{gross_margin_net:.0%}")
     c3.metric("Member vs non-member value per item", f"{member_multiple:.1f}x", help=f"SGD {member_avg_item:,.2f} vs SGD {nonmember_avg_item:,.2f} per item sold")
-    c4.metric("New members, last 7.5 months", f"{pos_signups}", help="About 2 a month")
+    c4.metric(f"New members, {period_span_label}", f"{pos_signups}", help="About 2 a month")
 
     left, right = st.columns(2)
     with left:
@@ -281,14 +309,23 @@ with tab3:
         fig_mem.update_layout(**PLOTLY_LAYOUT, height=340, showlegend=False)
         st.plotly_chart(fig_mem, use_container_width=True, theme=None)
 
+    st.caption(
+        "Rose tops the discount-rate chart, but it's a very small category (about SGD 1,200 total "
+        "over the whole period) — a couple of discounted bottles swing its rate a lot. Liquor and "
+        "Champagne/Sparkling are the categories worth acting on; they're both material in size and "
+        "consistently among the most discounted."
+    )
+
     with st.container(border=True):
         st.markdown(
-            f"Cellar V gave away SGD {pos_discount:,.0f} in discounts over the period — roughly one "
-            f"dollar in five of gross sales. Liquor and Champagne/Sparkling are discounted hardest, "
-            f"each losing close to a quarter to a third of their value to markdowns, while food is "
-            f"barely discounted at all. Meanwhile, members spend {member_multiple:.1f} times more per "
-            f"item than non-members — yet only {pos_signups} people joined as members over seven and a "
-            f"half months, about two a month. That's a lever that's mostly sitting untouched."
+            f"Cellar V gave away SGD {pos_discount:,.0f} in discounts since the start of 2025 — roughly "
+            f"one dollar in five of gross sales, and remarkably steady year to year (about "
+            f"{by_year.iloc[0]['discount_rate']:.0%} in 2025, {by_year.iloc[1]['discount_rate']:.0%} so "
+            f"far in 2026). Liquor and Champagne/Sparkling are discounted hardest, each losing close to "
+            f"a quarter to a third of their value to markdowns, while food is barely discounted at all. "
+            f"Meanwhile, members spend {member_multiple:.1f} times more per item than non-members — yet "
+            f"only {pos_signups} people joined as members over that whole stretch, about two a month. "
+            f"That's a lever that's mostly sitting untouched."
         )
 
 # ---------------------------------------------------------------------------
@@ -359,8 +396,8 @@ The clearest opportunity isn't the website — it's tightening how the business 
    of what "Custom Discount" is meant to cover and when staff should actually use it.
 2. Make membership sign-up part of the conversation at checkout, rather than something guests have to
    ask about themselves. Members already spend {member_multiple:.1f} times more per item than
-   non-members, but only {pos_signups} people joined in seven and a half months against
-   {pos_txns:,} transactions — most guests are simply never being asked.
+   non-members, but only {pos_signups} people joined as members since the start of 2025, against
+   {pos_txns:,} transactions over the same stretch — most guests are simply never being asked.
 3. Separately, restock or take down the {n_bestsellers_oos} out-of-stock "Best seller" listings on
    Shopify. It's a cheap, quick fix — just not the one that moves the needle most.
 
@@ -384,13 +421,17 @@ with tab6:
     st.subheader("Assumptions & Limitations")
     st.markdown(
         f"""
-- This covers {period_start_date} to {period_end_date} — about seven and a half months, not a full
-  year. The recovery figure in the Recommendation is an illustration of what today's numbers imply,
-  not a forecast of a full year or of how guests would actually respond to less discounting.
+- This covers {period_start_date} to {period_end_date} — a full calendar year (2025) plus 2026
+  year-to-date through August 17, not two complete years. The By Year breakdown on the first tab
+  keeps 2026 separate for exactly this reason: its total isn't a full-year figure and shouldn't be
+  read as one. The recovery estimate in the Recommendation is an illustration of what the combined
+  numbers imply, not a forecast of how guests would actually respond to less discounting.
 - "Custom Discount" is a single, undifferentiated line in the POS export (SGD {pos_discount:,.0f}
-  across 972 uses). It likely mixes happy-hour pricing, staff comps, corporate deals, and genuine
-  promotions together, so the {discount_rate:.1%} figure is a ceiling on discretionary discounting —
-  not evidence that any one promotion was a mistake.
+  across {int(pos_discounts.iloc[0]['count']):,} uses, combined across both years). It likely mixes
+  happy-hour pricing, staff comps, corporate deals, and genuine promotions together, so the
+  {discount_rate:.1%} figure is a ceiling on discretionary discounting — not evidence that any one
+  promotion was a mistake. That said, the rate is close to identical in 2025 and 2026 separately,
+  which is what makes it look like a pattern rather than noise.
 - The member-versus-non-member comparison is a per-item average, not a per-customer or per-visit
   figure, and it's correlational rather than causal: members may simply be more frequent or more
   affluent regulars who'd spend more regardless of membership status. The {member_multiple:.1f}x gap
@@ -405,11 +446,17 @@ with tab6:
 - Stock-outs correlate with the online channel's conversion drought, but other explanations — traffic,
   pricing, checkout friction — haven't been ruled out. Restocking is the cheapest, most confident first
   test for that channel specifically, not a guaranteed fix.
+- The 2025 and 2026 POS reports are combined by matching identical product names between the two
+  years' exports. Where a wine's listing name changed between years (a new vintage added to the name,
+  for instance), the two years show up as separate line items rather than one combined total — so a
+  handful of individual product totals in the Where the Money Comes From tab may understate a wine's
+  true two-year total, even though the category- and business-level totals elsewhere are unaffected.
 """
     )
 
 st.divider()
 st.caption(
-    "Cellar V · Communicating with Data (MSBA) · Data sources: in-person POS sales report "
-    f"({period_start_date}–{period_end_date}) and Cellar V Shopify Admin API (pulled 2026-08-11)"
+    "Cellar V · Communicating with Data (MSBA) · Data sources: in-person POS sales reports, "
+    f"2025 full year plus 2026 year-to-date ({period_start_date}–{period_end_date}), "
+    "and Cellar V Shopify Admin API (pulled 2026-08-11)"
 )
