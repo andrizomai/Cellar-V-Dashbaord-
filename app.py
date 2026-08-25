@@ -125,11 +125,14 @@ gross_margin_net = pos_profit / pos_net
 
 member_sales = pos["member_sales_sgd"]
 nonmember_sales = pos["nonmember_sales_sgd"]
-member_qty = pos["member_qty"]
-nonmember_qty = pos["nonmember_qty"]
-member_avg_item = member_sales / member_qty
-nonmember_avg_item = nonmember_sales / nonmember_qty
-member_multiple = member_avg_item / nonmember_avg_item
+# The POS export's "Sales Quantity" for member/non-member is a transaction count, not an
+# item count — member_txns + nonmember_txns equals total transactions exactly in both years.
+member_txns = pos["member_qty"]
+nonmember_txns = pos["nonmember_qty"]
+member_avg_txn = member_sales / member_txns
+nonmember_avg_txn = nonmember_sales / nonmember_txns
+member_multiple = member_avg_txn / nonmember_avg_txn
+member_txn_share = member_txns / pos_txns
 
 period_start, period_end = pos["period"].split(" - ")
 period_start_date = period_start.split(" ")[0]
@@ -279,7 +282,7 @@ with tab3:
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Discount given away", f"SGD {pos_discount:,.0f}", delta=f"{discount_rate:.1%} of gross sales", delta_color="inverse")
     c2.metric("Gross margin, net sales", f"{gross_margin_net:.0%}")
-    c3.metric("Member vs non-member value per item", f"{member_multiple:.1f}x", help=f"SGD {member_avg_item:,.2f} vs SGD {nonmember_avg_item:,.2f} per item sold")
+    c3.metric("Member vs non-member average sale", f"{member_multiple:.1f}x", help=f"SGD {member_avg_txn:,.2f} vs SGD {nonmember_avg_txn:,.2f} average transaction value")
     c4.metric(f"New members, {period_span_label}", f"{pos_signups}", help="About 2 a month")
 
     left, right = st.columns(2)
@@ -297,15 +300,15 @@ with tab3:
         st.plotly_chart(fig_disc, use_container_width=True, theme=None)
 
     with right:
-        st.markdown("##### Average value per item: member vs non-member")
+        st.markdown("##### Average transaction value: member vs non-member")
         member_df = pd.DataFrame({
             "group": ["Member", "Non-member"],
-            "avg_value": [member_avg_item, nonmember_avg_item],
+            "avg_value": [member_avg_txn, nonmember_avg_txn],
         })
         fig_mem = px.bar(member_df, x="group", y="avg_value",
                           color="group", color_discrete_map={"Member": BLUE, "Non-member": ORANGE},
-                          labels={"avg_value": "SGD per item", "group": ""})
-        fig_mem.update_traces(hovertemplate="%{x}<br>SGD %{y:,.2f}/item<extra></extra>")
+                          labels={"avg_value": "SGD per transaction", "group": ""})
+        fig_mem.update_traces(hovertemplate="%{x}<br>SGD %{y:,.2f}/transaction<extra></extra>")
         fig_mem.update_layout(**PLOTLY_LAYOUT, height=340, showlegend=False)
         st.plotly_chart(fig_mem, use_container_width=True, theme=None)
 
@@ -320,11 +323,12 @@ with tab3:
         st.markdown(
             f"Cellar V gave away SGD {pos_discount:,.0f} in discounts since the start of 2025 — roughly "
             f"one dollar in five of gross sales, and remarkably steady year to year (about "
-            f"{by_year.iloc[0]['discount_rate']:.0%} in 2025, {by_year.iloc[1]['discount_rate']:.0%} so "
+            f"{by_year.iloc[0]['discount_rate']:.1%} in 2025, {by_year.iloc[1]['discount_rate']:.1%} so "
             f"far in 2026). Liquor and Champagne/Sparkling are discounted hardest, each losing close to "
             f"a quarter to a third of their value to markdowns, while food is barely discounted at all. "
-            f"Meanwhile, members spend {member_multiple:.1f} times more per item than non-members — yet "
-            f"only {pos_signups} people joined as members over that whole stretch, about two a month. "
+            f"Meanwhile, member transactions already make up {member_txn_share:.0%} of the till, averaging "
+            f"{member_multiple:.1f} times more per sale than non-member transactions — yet only "
+            f"{pos_signups} people joined as members over that whole stretch, about two a month. "
             f"That's a lever that's mostly sitting untouched."
         )
 
@@ -395,7 +399,7 @@ The clearest opportunity isn't the website — it's tightening how the business 
    away the largest share of their value, roughly a quarter to a third — starting with a plain review
    of what "Custom Discount" is meant to cover and when staff should actually use it.
 2. Make membership sign-up part of the conversation at checkout, rather than something guests have to
-   ask about themselves. Members already spend {member_multiple:.1f} times more per item than
+   ask about themselves. Members already average {member_multiple:.1f} times more per sale than
    non-members, but only {pos_signups} people joined as members since the start of 2025, against
    {pos_txns:,} transactions over the same stretch — most guests are simply never being asked.
 3. Separately, restock or take down the {n_bestsellers_oos} out-of-stock "Best seller" listings on
@@ -432,8 +436,10 @@ with tab6:
   {discount_rate:.1%} figure is a ceiling on discretionary discounting — not evidence that any one
   promotion was a mistake. That said, the rate is close to identical in 2025 and 2026 separately,
   which is what makes it look like a pattern rather than noise.
-- The member-versus-non-member comparison is a per-item average, not a per-customer or per-visit
-  figure, and it's correlational rather than causal: members may simply be more frequent or more
+- The member-versus-non-member comparison is an average-transaction-value figure (member and
+  non-member transaction counts sum exactly to total transactions in both years' exports), not a
+  per-customer lifetime-value figure — a member who visits often is counted once per visit, not once
+  overall. It's also correlational rather than causal: members may simply be more frequent or more
   affluent regulars who'd spend more regardless of membership status. The {member_multiple:.1f}x gap
   is a reason to test a more active sign-up ask, not proof that membership itself drives spending.
 - The online and in-person catalogs run on separate systems with different pricing and only partial
