@@ -197,6 +197,61 @@ function stackedColChart(s, x, y, w, h, opts) {
   s.addShape("line", { x, y: plotBottom, w, h: 0, line: { color: TAN, width: 1 } });
 }
 
+// Minimalist line-art wine glass, built entirely from native shapes (no
+// photography — Canva's reference used licensed stock photos of a wine bar
+// that aren't ours to reuse; this is an original vector treatment instead).
+// x, y = top-left of the bounding box; w = bowl width, sets the whole scale.
+function wineGlassIcon(s, x, y, w, color, opts = {}) {
+  const bowlH = w * 1.05;
+  const stemW = w * 0.07;
+  const stemH = w * 0.95;
+  const baseW = w * 0.65;
+  const baseH = w * 0.1;
+  const alpha = opts.transparency ?? 0;
+  s.addShape("triangle", {
+    x, y, w, h: bowlH, flipV: true,
+    fill: { color, transparency: alpha }, line: { type: "none" },
+  });
+  s.addShape("rect", {
+    x: x + w / 2 - stemW / 2, y: y + bowlH, w: stemW, h: stemH,
+    fill: { color, transparency: alpha }, line: { type: "none" },
+  });
+  s.addShape("ellipse", {
+    x: x + w / 2 - baseW / 2, y: y + bowlH + stemH - baseH / 2, w: baseW, h: baseH,
+    fill: { color, transparency: alpha }, line: { type: "none" },
+  });
+}
+
+// A few small "bubble" accents scattered above a glass bowl centered at cx,
+// with its rim at rimY (both in inches).
+function bubbles(s, cx, rimY, color) {
+  const specs = [
+    { dx: -0.55, dy: -0.35, r: 0.05, t: 20 },
+    { dx: 0.4, dy: -0.55, r: 0.035, t: 35 },
+    { dx: 0.1, dy: -0.8, r: 0.045, t: 15 },
+    { dx: -0.25, dy: -0.95, r: 0.03, t: 40 },
+    { dx: 0.6, dy: -0.15, r: 0.03, t: 45 },
+  ];
+  specs.forEach(({ dx, dy, r, t }) => {
+    s.addShape("ellipse", {
+      x: cx + dx - r, y: rimY + dy - r, w: r * 2, h: r * 2,
+      fill: { color, transparency: t }, line: { type: "none" },
+    });
+  });
+}
+
+// Concentric ring arcs bleeding off a slide corner — a generic geometric
+// flourish (not a copy of any specific design), toned down via transparency.
+function cornerArcs(s, cornerX, cornerY, color) {
+  [1.4, 2.0, 2.6].forEach((r, i) => {
+    s.addShape("ellipse", {
+      x: cornerX - r, y: cornerY - r, w: r * 2, h: r * 2,
+      fill: { type: "none" },
+      line: { color, width: 1, transparency: 55 + i * 12 },
+    });
+  });
+}
+
 // ===========================================================================
 const p = newPres();
 let n = 0;
@@ -205,36 +260,47 @@ let n = 0;
 {
   const s = bgSlide(p, WINE);
   s.addShape("rect", { x: 0, y: 0, w: W, h: H, fill: { color: WINE }, line: { type: "none" } });
+
+  // Right panel — a darker block standing in for the "photo panel" a
+  // reference deck would use, carrying an original line-art glass instead.
+  const panelX = 8.9;
+  s.addShape("rect", { x: panelX, y: 0, w: W - panelX, h: H, fill: { color: WINE_DARK }, line: { type: "none" } });
+  cornerArcs(s, W, 0, GOLD_LIGHT);
+  const glassW = 1.5, glassX = panelX + (W - panelX) / 2 - glassW / 2, glassY = 2.55;
+  wineGlassIcon(s, glassX, glassY, glassW, GOLD_LIGHT);
+  bubbles(s, glassX + glassW / 2, glassY, GOLD_LIGHT);
+
+  const textW = 8.1;
   s.addText("MSBA  ·  COMMUNICATING WITH DATA", {
-    x: MARGIN, y: 1.0, w: 10, h: 0.4,
+    x: MARGIN, y: 1.0, w: textW, h: 0.4,
     fontFace: BODY_FONT, fontSize: 13, bold: true, color: GOLD_LIGHT, charSpacing: 2, margin: 0,
   });
   s.addText([
     { text: "Cellar V:\n", options: { color: WHITE } },
-    { text: "Where Should the Next Dollar Go?", options: { color: GOLD_LIGHT } },
+    { text: "Where Should the\nNext Dollar Go?", options: { color: GOLD_LIGHT } },
   ], {
-    x: MARGIN, y: 1.5, w: 11.5, h: 2.6,
-    fontFace: HEAD_FONT, fontSize: 48, bold: true, margin: 0, lineSpacingMultiple: 1.05,
+    x: MARGIN, y: 1.5, w: textW, h: 2.8,
+    fontFace: HEAD_FONT, fontSize: 44, bold: true, margin: 0, lineSpacingMultiple: 1.05,
   });
   s.addText(
     "A data story built on 19 months of point-of-sale history (2025 through 2026 year-to-date) " +
     "and Cellar V's Shopify store — presented as the Analytics App project.",
     {
-      x: MARGIN, y: 4.15, w: 9.5, h: 0.9,
-      fontFace: BODY_FONT, fontSize: 15, color: "E7DCD5", margin: 0, lineSpacingMultiple: 1.2,
+      x: MARGIN, y: 4.45, w: textW, h: 0.9,
+      fontFace: BODY_FONT, fontSize: 14, color: "E7DCD5", margin: 0, lineSpacingMultiple: 1.2,
     }
   );
-  s.addShape("line", { x: MARGIN, y: 5.35, w: 3, h: 0, line: { color: GOLD, width: 1.5 } });
+  s.addShape("line", { x: MARGIN, y: 5.5, w: 3, h: 0, line: { color: GOLD, width: 1.5 } });
   s.addText("Presented by Andre  ·  Owner, Cellar V", {
-    x: MARGIN, y: 5.55, w: 8, h: 0.4,
+    x: MARGIN, y: 5.68, w: textW, h: 0.4,
     fontFace: BODY_FONT, fontSize: 14, bold: true, color: WHITE, margin: 0,
   });
   s.addText("Prepared for Cellar V's owner and investors", {
-    x: MARGIN, y: 5.92, w: 8, h: 0.35,
+    x: MARGIN, y: 6.05, w: textW, h: 0.35,
     fontFace: BODY_FONT, fontSize: 12, color: "E7DCD5", margin: 0,
   });
   s.addText("cellar-v.com.sg   ·   January 2025 – August 2026", {
-    x: MARGIN, y: H - 0.7, w: 8, h: 0.35,
+    x: MARGIN, y: H - 0.7, w: textW, h: 0.35,
     fontFace: BODY_FONT, fontSize: 11, color: GOLD_LIGHT, margin: 0,
   });
   speakerNotes(s,
@@ -703,6 +769,8 @@ let n = 0;
   n++;
   const s = bgSlide(p, WINE);
   s.addShape("rect", { x: 0, y: 0, w: W, h: H, fill: { color: WINE }, line: { type: "none" } });
+  cornerArcs(s, W, H, GOLD_LIGHT);
+  wineGlassIcon(s, W - 1.9, 1.0, 0.85, GOLD_LIGHT, { transparency: 25 });
   s.addText(
     "The biggest lever isn\u2019t more\nmarketing spend.",
     { x: MARGIN, y: 1.9, w: 11, h: 1.5, fontFace: HEAD_FONT, bold: true, fontSize: 36, color: WHITE, margin: 0, lineSpacingMultiple: 1.08 }
