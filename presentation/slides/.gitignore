@@ -1,6 +1,5 @@
 node_modules/
-qa_images/
-qa_images2/
+qa_images*/
 reference.pptx
 reference-thumbs*
 Cellar_V_Data_Story.pptx
