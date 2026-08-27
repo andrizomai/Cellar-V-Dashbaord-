@@ -8,3 +8,6 @@ __pycache__/
 # files, which are committed. Remove this line if you're fine publishing
 # the raw ledger too.
 data/raw/
+
+# Built deck lives outside the repo; regenerate with presentation/slides/build_deck.js
+presentation/Cellar_V_Data_Story.pptx
