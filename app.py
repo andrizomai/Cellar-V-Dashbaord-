@@ -31,10 +31,9 @@ DATA_DIR = Path(__file__).parent / "data"
 # ---------------------------------------------------------------------------
 # Palette (validated categorical + status colors)
 # ---------------------------------------------------------------------------
-BLUE, ORANGE, AQUA, YELLOW = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
-MAGENTA, GREEN, VIOLET, RED = "#e87ba4", "#008300", "#4a3aa7", "#e34948"
+BLUE, ORANGE = "#2a78d6", "#eb6834"
 STATUS_GOOD, STATUS_CRITICAL = "#0ca30c", "#d03b3b"
-INK, INK_SECONDARY, MUTED, GRID = "#0b0b0b", "#52514e", "#898781", "#e1e0d9"
+INK, MUTED, GRID = "#0b0b0b", "#898781", "#e1e0d9"
 SURFACE = "#fcfcfb"
 
 PLOTLY_LAYOUT = dict(
@@ -75,16 +74,15 @@ def load_pos_data():
         summary = json.load(f)
     with open(DATA_DIR / "pos_by_year.json") as f:
         by_year = json.load(f)
-    category = pd.read_csv(DATA_DIR / "pos_category_sales.csv")
-    top_products = pd.read_csv(DATA_DIR / "pos_top_products.csv")
+    category_by_year = pd.read_csv(DATA_DIR / "pos_category_by_year.csv")
+    products_by_year = pd.read_csv(DATA_DIR / "pos_products_by_year.csv")
     discounts = pd.read_csv(DATA_DIR / "pos_discounts.csv")
-    payment = pd.read_csv(DATA_DIR / "pos_payment_methods.csv")
     catalog_comp = pd.read_csv(DATA_DIR / "pos_catalog_composition.csv")
-    return summary, by_year, category, top_products, discounts, payment, catalog_comp
+    return summary, by_year, category_by_year, products_by_year, discounts, catalog_comp
 
 
 products, orders, monthly, customers = load_online_data()
-pos, pos_by_year, pos_category, pos_top_products, pos_discounts, pos_payment, pos_catalog = load_pos_data()
+pos_combined, pos_by_year, pos_category_by_year, pos_products_by_year, pos_discounts, pos_catalog = load_pos_data()
 by_year = pd.DataFrame(pos_by_year)
 by_year["discount_rate"] = by_year["discount_rate"].abs()
 
@@ -108,12 +106,39 @@ total_customers = customers["customers_signed_up"].sum()
 customers_who_ordered = customers["customers_with_orders"].sum()
 purchase_rate = customers_who_ordered / total_customers
 
+# --- period selection --------------------------------------------------------
+# The POS exports arrive one file per year, so the honest unit of filtering is a
+# reporting period, not an arbitrary date range. "Combined" sums the periods and
+# reproduces the headline figures exactly (see data/build_data.py).
+COMBINED = "Combined (Jan 2025 – Aug 2026)"
+PERIOD_LABELS = {"2025": "2025 (full year)", "2026 YTD": "2026 (year to date, through 17 Aug)"}
+PERIOD_OPTIONS = [COMBINED] + [PERIOD_LABELS[r["label"]] for r in pos_by_year]
+LABEL_FOR_OPTION = {PERIOD_LABELS[k]: k for k in PERIOD_LABELS}
+
+selected_period = st.session_state.get("period_filter", COMBINED) or COMBINED
+is_combined = selected_period == COMBINED
+selected_label = None if is_combined else LABEL_FOR_OPTION[selected_period]
+
+if is_combined:
+    pos = dict(pos_combined)
+else:
+    row = by_year[by_year["label"] == selected_label].iloc[0]
+    pos = {
+        "gross_sales": row["gross_sales_sgd"], "total_discount": row["total_discount_sgd"],
+        "net_sales": row["net_sales_sgd"], "total_sales": row["total_sales_sgd"],
+        "total_cost": row["total_cost_sgd"], "gross_profit": row["gross_profit_sgd"],
+        "transactions": row["transactions"], "avg_sale_per_transaction": row["avg_sale_per_transaction"],
+        "total_pax": row["total_pax"], "customer_signups": row["customer_signups"],
+        "member_sales_sgd": row["member_sales_sgd"], "nonmember_sales_sgd": row["nonmember_sales_sgd"],
+        "member_qty": row["member_qty"], "nonmember_qty": row["nonmember_qty"],
+        "period": row["period"],
+    }
+
 # --- in-person POS derived stats --------------------------------------------
 pos_gross = float(pos["gross_sales"])
 pos_discount = abs(float(pos["total_discount"]))
 pos_net = float(pos["net_sales"])
 pos_total = float(pos["total_sales"])
-pos_cost = float(pos["total_cost"])
 pos_profit = float(pos["gross_profit"])
 pos_txns = int(pos["transactions"])
 pos_avg_txn = float(pos["avg_sale_per_transaction"])
@@ -141,12 +166,33 @@ period_start_ts = pd.to_datetime(period_start_date, dayfirst=True)
 period_end_ts = pd.to_datetime(period_end_date, dayfirst=True)
 period_days = (period_end_ts - period_start_ts).days + 1
 avg_daily_sales = pos_total / period_days
-period_span_label = "January 2025 through August 2026"  # 2025 full year + 2026 YTD
+period_span_label = (
+    "January 2025 through August 2026" if is_combined
+    else ("2025" if selected_label == "2025" else "2026 to date")
+)
 
-pos_category = pos_category.sort_values("gross_sales_sgd", ascending=False)
+# --- category / product frames for the selected period ------------------------
+_cat_src = pos_category_by_year if is_combined else \
+    pos_category_by_year[pos_category_by_year["period"] == selected_label]
+pos_category = (
+    _cat_src.groupby("tab", as_index=False)[["gross_sales_sgd", "quantity_sold", "discount_sgd"]]
+    .sum().sort_values("gross_sales_sgd", ascending=False)
+)
 pos_category["discount_rate"] = pos_category["discount_sgd"].abs() / pos_category["gross_sales_sgd"]
 
+_prod_src = pos_products_by_year if is_combined else \
+    pos_products_by_year[pos_products_by_year["period"] == selected_label]
+pos_top_products = (
+    _prod_src.groupby("product_name", as_index=False)["gross_sales_sgd"].sum()
+    .sort_values("gross_sales_sgd", ascending=False)
+)
+
 illustrative_recovery = pos_gross * 0.05  # a 5pp tighter discount rate, held out explicitly as illustrative
+
+# Prose fragments that have to agree with whichever period is selected.
+period_phrase = "since the start of 2025" if is_combined else f"in {period_span_label}"
+months_in_period = round(period_days / 30.44)
+signups_per_month = pos_signups / (period_days / 30.44)
 
 # ---------------------------------------------------------------------------
 # Header
@@ -156,8 +202,20 @@ st.caption(
     "Prepared for Cellar V's owner and investors · Decision: where the business should prioritize "
     "its limited time and capital next — in-person discount discipline, membership growth, or the "
     f"dormant online channel · POS data: **{period_start_date} to {period_end_date}** "
-    "(full year 2025 plus 2026 year-to-date) · Online data: Shopify, pulled **2026-08-11**"
+    "· Online data: Shopify, pulled **2026-08-11**"
 )
+
+filter_col, note_col = st.columns([2, 3])
+with filter_col:
+    st.radio(
+        "Reporting period", PERIOD_OPTIONS, key="period_filter",
+        horizontal=True, label_visibility="collapsed",
+    )
+with note_col:
+    st.caption(
+        "Switching period re-cuts every in-person figure and chart below. The Online Channel tab "
+        "always shows the Shopify store's full lifetime, which the POS periods don't apply to."
+    )
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
     ["The Full Picture", "Where the Money Comes From", "Margin & Membership",
@@ -198,6 +256,11 @@ with tab1:
             f"really answering — not *how do we fix the online store*, but *where should the next dollar "
             f"and the next hour of attention go, across the whole business.*"
         )
+    st.caption(
+        f"The daily figure spreads sales across all {period_days} calendar days in the period, "
+        "including any the bar was closed — so it understates a real trading day, which only makes "
+        "the gap with the online channel wider."
+    )
 
     st.markdown("##### By year")
     yr_cols = st.columns(len(by_year))
@@ -283,7 +346,8 @@ with tab3:
     c1.metric("Discount given away", f"SGD {pos_discount:,.0f}", delta=f"{discount_rate:.1%} of gross sales", delta_color="inverse")
     c2.metric("Gross margin, net sales", f"{gross_margin_net:.0%}")
     c3.metric("Member vs non-member average sale", f"{member_multiple:.1f}x", help=f"SGD {member_avg_txn:,.2f} vs SGD {nonmember_avg_txn:,.2f} average transaction value")
-    c4.metric(f"New members, {period_span_label}", f"{pos_signups}", help="About 2 a month")
+    c4.metric(f"New members, {period_span_label}", f"{pos_signups}",
+              help=f"About {signups_per_month:.0f} a month across {months_in_period} months")
 
     left, right = st.columns(2)
     with left:
@@ -312,24 +376,27 @@ with tab3:
         fig_mem.update_layout(**PLOTLY_LAYOUT, height=340, showlegend=False)
         st.plotly_chart(fig_mem, use_container_width=True, theme=None)
 
+    _top_disc = pos_category.sort_values("discount_rate", ascending=False).iloc[0]
+    _top_disc_share = _top_disc["gross_sales_sgd"] / pos_gross
     st.caption(
-        "Rose tops the discount-rate chart, but it's a very small category (about SGD 1,200 total "
-        "over the whole period) — a couple of discounted bottles swing its rate a lot. Liquor and "
-        "Champagne/Sparkling are the categories worth acting on; they're both material in size and "
-        "consistently among the most discounted."
+        f"{_top_disc['tab']} tops the discount-rate chart, but it's a very small category "
+        f"(SGD {_top_disc['gross_sales_sgd']:,.0f} in this period, {_top_disc_share:.1%} of sales) — "
+        "a couple of discounted bottles swing its rate a lot. Liquor and Champagne/Sparkling are the "
+        "categories worth acting on: they're both material in size and consistently among the most "
+        "discounted."
     )
 
     with st.container(border=True):
         st.markdown(
-            f"Cellar V gave away SGD {pos_discount:,.0f} in discounts since the start of 2025 — roughly "
+            f"Cellar V gave away SGD {pos_discount:,.0f} in discounts {period_phrase} — roughly "
             f"one dollar in five of gross sales, and remarkably steady year to year (about "
             f"{by_year.iloc[0]['discount_rate']:.1%} in 2025, {by_year.iloc[1]['discount_rate']:.1%} so "
             f"far in 2026). Liquor and Champagne/Sparkling are discounted hardest, each losing close to "
             f"a quarter to a third of their value to markdowns, while food is barely discounted at all. "
             f"Meanwhile, member transactions already make up {member_txn_share:.0%} of the till, averaging "
             f"{member_multiple:.1f} times more per sale than non-member transactions — yet only "
-            f"{pos_signups} people joined as members over that whole stretch, about two a month. "
-            f"That's a lever that's mostly sitting untouched."
+            f"{pos_signups} people joined as members over that stretch, about "
+            f"{signups_per_month:.0f} a month. That's a lever that's mostly sitting untouched."
         )
 
 # ---------------------------------------------------------------------------
@@ -400,7 +467,7 @@ The clearest opportunity isn't the website — it's tightening how the business 
    of what "Custom Discount" is meant to cover and when staff should actually use it.
 2. Make membership sign-up part of the conversation at checkout, rather than something guests have to
    ask about themselves. Members already average {member_multiple:.1f} times more per sale than
-   non-members, but only {pos_signups} people joined as members since the start of 2025, against
+   non-members, but only {pos_signups} people joined as members {period_phrase}, against
    {pos_txns:,} transactions over the same stretch — most guests are simply never being asked.
 3. Separately, restock or take down the {n_bestsellers_oos} out-of-stock "Best seller" listings on
    Shopify. It's a cheap, quick fix — just not the one that moves the needle most.
@@ -425,17 +492,19 @@ with tab6:
     st.subheader("Assumptions & Limitations")
     st.markdown(
         f"""
-- This covers {period_start_date} to {period_end_date} — a full calendar year (2025) plus 2026
+- The underlying POS data covers 01/01/2025 to 17/08/2026 — a full calendar year (2025) plus 2026
   year-to-date through August 17, not two complete years. The By Year breakdown on the first tab
   keeps 2026 separate for exactly this reason: its total isn't a full-year figure and shouldn't be
-  read as one. The recovery estimate in the Recommendation is an illustration of what the combined
-  numbers imply, not a forecast of how guests would actually respond to less discounting.
-- "Custom Discount" is a single, undifferentiated line in the POS export (SGD {pos_discount:,.0f}
-  across {int(pos_discounts.iloc[0]['count']):,} uses, combined across both years). It likely mixes
-  happy-hour pricing, staff comps, corporate deals, and genuine promotions together, so the
-  {discount_rate:.1%} figure is a ceiling on discretionary discounting — not evidence that any one
-  promotion was a mistake. That said, the rate is close to identical in 2025 and 2026 separately,
-  which is what makes it look like a pattern rather than noise.
+  read as one, and the reporting-period filter at the top of the page exists so the two are never
+  accidentally compared as equals. The recovery estimate in the Recommendation is an illustration
+  of what the numbers imply, not a forecast of how guests would respond to less discounting.
+- "Custom Discount" is a single, undifferentiated line in the POS export
+  (SGD {abs(float(pos_combined['total_discount'])):,.0f} across
+  {int(pos_discounts.iloc[0]['count']):,} uses across both years). It likely mixes happy-hour
+  pricing, staff comps, corporate deals, and genuine promotions together, so the discount rate here
+  is a ceiling on discretionary discounting — not evidence that any one promotion was a mistake.
+  That said, the rate is close to identical in 2025 and 2026 separately, which is what makes it
+  look like a pattern rather than noise.
 - The member-versus-non-member comparison is an average-transaction-value figure (member and
   non-member transaction counts sum exactly to total transactions in both years' exports), not a
   per-customer lifetime-value figure — a member who visits often is counted once per visit, not once
@@ -463,6 +532,7 @@ with tab6:
 st.divider()
 st.caption(
     "Cellar V · Communicating with Data (MSBA) · Data sources: in-person POS sales reports, "
-    f"2025 full year plus 2026 year-to-date ({period_start_date}–{period_end_date}), "
-    "and Cellar V Shopify Admin API (pulled 2026-08-11)"
+    "2025 full year plus 2026 year-to-date (01/01/2025–17/08/2026), "
+    "and Cellar V Shopify Admin API (pulled 2026-08-11). "
+    f"Currently viewing: {selected_period}."
 )

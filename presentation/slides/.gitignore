@@ -1,5 +1,6 @@
 node_modules/
-qa_images*/
+# Rendered QA screenshots — regenerated on demand, never committed
+qa*/
 reference.pptx
 reference-thumbs*
 Cellar_V_Data_Story.pptx

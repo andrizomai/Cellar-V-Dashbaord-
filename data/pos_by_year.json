@@ -8,11 +8,16 @@
     "discount_rate": -0.19993932119184143,
     "gross_profit_sgd": 112579.15,
     "net_sales_sgd": 172198.38,
+    "total_cost_sgd": 59619.23,
     "gross_margin_net": 0.6537758949880945,
     "transactions": 1556,
     "avg_sale_per_transaction": 120.62739717223651,
     "total_pax": 2855,
-    "customer_signups": 25
+    "customer_signups": 25,
+    "member_sales_sgd": 83378.15,
+    "nonmember_sales_sgd": 104318.08,
+    "member_qty": 360,
+    "nonmember_qty": 1196
   },
   {
     "label": "2026 YTD",
@@ -23,10 +28,15 @@
     "discount_rate": -0.19549223694441928,
     "gross_profit_sgd": 62858.83,
     "net_sales_sgd": 97037.16,
+    "total_cost_sgd": 34178.33,
     "gross_margin_net": 0.647781015025584,
     "transactions": 807,
     "avg_sale_per_transaction": 131.06629491945478,
     "total_pax": 1763,
-    "customer_signups": 16
+    "customer_signups": 16,
+    "member_sales_sgd": 58906.15,
+    "nonmember_sales_sgd": 46864.35,
+    "member_qty": 292,
+    "nonmember_qty": 515
   }
 ]

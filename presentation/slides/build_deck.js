@@ -424,8 +424,8 @@ let n = 0;
   sectionTitle(s, "A lightweight Streamlit app, built on\ncombined POS and Shopify data.", { size: 27, h: 1.3 });
   s.addText(
     "Six linked tabs mirror the story points on this deck, reading live from the combined 2025-2026 " +
-    "POS exports and the Shopify Admin API. The figures on the following slides come directly from " +
-    "this app.",
+    "POS exports and the Shopify Admin API. A reporting-period filter re-cuts every in-person figure " +
+    "for 2025, 2026 to date, or both. The figures on the following slides come directly from this app.",
     {
       x: MARGIN, y: 2.3, w: 11.3, h: 0.8,
       fontFace: BODY_FONT, fontSize: 14, color: INK, margin: 0, lineSpacingMultiple: 1.25,
@@ -750,8 +750,9 @@ let n = 0;
   });
 
   readCallout(s, MARGIN, 5.55, 11.3, 1.15,
-    "All three KPIs are live tiles in the Streamlit app, filtered by date range \u2014 so progress against " +
-    "this baseline can be re-checked any week without waiting for a new report."
+    "All three KPIs are live tiles in the Streamlit app, and its reporting-period filter re-cuts them " +
+    "for 2025, 2026 to date, or both \u2014 so each new export can be checked against this baseline " +
+    "without waiting for a written report."
   );
 
   pageNumber(s, n + 1);

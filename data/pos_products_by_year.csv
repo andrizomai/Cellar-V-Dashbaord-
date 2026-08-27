@@ -1,0 +1,722 @@
+period,product_name,category,gross_sales_sgd,quantity_sold,total_cost_sgd,total_discount_sgd,total_profit_sgd
+2025,Collefrisio In&Out Montepulciano d'Abruzzo DOC 2019,Red - Italy,11376.44,87,2596.08,-3248.0,5532.36
+2025,Collefrisio Anniversary Montepulciano Abruzzo DOC Limited Edition 2017,Red - Italy,5508.75,42,1520.88,-1472.6,2515.27
+2025,red by glass,By Glass,5161.33,349,0.0,-465.0,4696.33
+2025,Bodegas Alvia Livius Tempranillo Reserva 2010,Red - Spain,5089.87,45,1894.95,-1644.0,1550.92
+2025,white by glass,By Glass,4968.77,336,0.0,-444.0,4524.77
+2025,Ca'Botta Costa Rossa Valpolicella Ripasso DOC Superiore 2018,Red - Italy,4434.64,53,1338.25,-764.0,2332.39
+2025,Collefrisio Semis Montepulciano D’Abruzzo DOC 2016,Red - Italy,4249.75,40,1177.07,-799.18,2273.5
+2025,Collefrisio Appassimento Vino Rosso 2022,Red - Italy,4062.15,51,483.34,-1030.5,2548.31
+2025,Ca'Botta Tenuta Cajo’ Amarone Della Valpolicella DOCG 2016,Red - Italy,4062.04,29,1223.22,-862.5,1976.32
+2025,Collefrisio In&Out 2020,Red - Italy,3942.88,35,534.16,-1086.0,2322.72
+2025,Ca'Botta Valpolicella Ripasso Doc Superiore Alta 2018,Red - Italy,3773.31,50,1103.5,-754.5,1915.31
+2025,Bodegas Alvia  Livius Graciano Reserva 2014,Red - Spain,3495.58,31,1295.18,-1002.0,1198.4
+2025,Collefrisio Primitivo IGT Salento 2020,Red - Italy,2906.5,26,832.26,-773.1,1301.14
+2025,Schwarz The Butcher Pinot Noir 2021,Red - Austria,2839.96,34,1020.0,-395.1,1424.86
+2025,INEDIT Damm 750ml,Beer,2707.54,93,1146.3,-413.5,1147.74
+2025,Caymus Napa Valley Cabernet Sauvignon 2022,Red - USA,2613.39,15,1371.0,-651.0,591.39
+2025,Palazzo di Varignana Sangiovese Superiore DOC 2022,Red - Italy,2608.11,35,753.55,-476.0,1378.56
+2025,Ca'Botta Torcinato Valpolicella DOC Superiore 2018,Red - Italy,2453.39,33,761.31,-380.0,1312.08
+2025,HONIG Napa Valley Cabernet Sauvignon 2021,Red - USA,2135.71,15,1020.0,-532.5,583.21
+2025,Ca'Botta Cerviero Rosso Veneto IGT 2018,Red - Italy,2020.46,27,635.85,-470.0,914.61
+2025,Collefrisio Primitivo IGT Salento 2022,Red - Italy,1730.4,15,260.7,-401.5,1068.2
+2025,Bodegas Alvia Centennial 1.5L Magnum Limited Edition 2015,Red - Spain,1690.39,12,553.08,-472.5,664.81
+2025,Collefrisio Magnolia Bianco IGT Terre Di Chieti 2023,White - Italy,1638.46,22,457.38,-288.0,893.08
+2025,The Black Chook Sparkling Shiraz,Sparkling - Australia,1591.22,20,540.0,-382.5,668.72
+2025,Collefrisio Confronto Rosso 2016,Red - Italy,1574.03,19,522.31,-242.33,809.39
+2025,Palazzo di Varignana Particella 63 2022,Red - Italy,1572.0,21,452.13,-372.0,747.87
+2025,Ca'Botta Valpolicella Superiore DOC Alta 2019,Red - Italy,1567.43,25,471.5,-316.7,779.23
+2025,Castillo De Aresan Terruno Reserva 2021,Red - Spain,1525.06,17,493.0,-303.5,728.56
+2025,Collefrisio Ten Vintages Montepulciano Abruzzo DOC Limited Edition 2018,Red - Italy,1516.37,12,462.12,-476.0,578.25
+2025,package-event,Food - Package,1477.06,9,0.0,0.0,1477.06
+2025,Collefrisio Le Cave Della Guardiuccia Brut – Abruzzo D.O.C. 2016,Sparkling - Italy,1422.88,15,515.85,-566.0,341.03
+2025,Olivier Ravoire Chateauneuf du Pape Blanc 2022,White - France,1412.22,11,409.86,-325.75,676.61
+2025,Ca'Botta Le Poggie Bianco Veneto 2023,White - Italy,1372.94,21,360.78,-294.5,717.66
+2025,Collefrisio Confronto Bianco 2019,White - Italy,1334.31,18,423.36,-160.0,750.95
+2025,Château Laubès Oak Barrel 2019,Red - France,1325.77,15,420.0,-223.25,682.52
+2025,Collefrisio Morrecine Montepulciano d’Abruzzo DOC 2022,Red - Italy,1267.06,19,342.15,-290.0,634.91
+2025,Pierre Gimonnet Et Fils Blanc De Blancs 1Er Cru Brut NV,Champagne - France,1256.49,9,522.0,-217.5,516.99
+2025,Ca'Botta Amarone Della Valpolicella DOCG 2016,Red - Italy,1216.28,10,96.24,-286.0,834.04
+2025,Olivier Ravoire Cotes du Rhone Blanc 2023,White - France,1185.45,17,315.52,-246.0,623.93
+2025,Charles Tort Hommage Cotes du Rhone Rouge 2020,Red - France,1175.66,14,319.9,-238.5,617.26
+2025,Collefrisio Magnolia Bianco IGT Terre Di Chieti 2024,White - Italy,1158.81,15,178.0,-256.75,724.06
+2025,Ca'Botta Prometeo Amarone Della Valpolicella DOCG 2016,Red - Italy,1157.67,8,432.08,-354.0,371.59
+2025,Kirei Karakuchi 80,Sake,1146.89,11,433.0,-279.0,434.89
+2025,Nicolas Feuillatte Reserve Exclusive Rose Brut NV,Champagne - France,1128.78,8,464.0,-337.5,327.28
+2025,CAOL ILA 25 Year Old Islay Single Malt,Liquor - Whisky (Scotch),1120.73,1,0.0,-240.0,880.73
+2025,Ca'Botta Prosecco Doc Ym Extra Dry NV,Sparkling - Italy,1120.56,17,284.24,-349.0,487.32
+2025,Charles Tort Sablet Cote du Rhone Villages Blanc 2023,White - France,1111.65,12,306.24,-130.0,675.41
+2025,Collefrisio In&Out BLACK Label 2019,Red - Italy,1083.47,7,214.2,-288.75,580.52
+2025,Chateau De Monturon Saint Emilion Grand Cru 2021,Red - France,1064.28,11,363.0,-223.0,478.28
+2025,Collefrisio Tenuta Giuliano Montepulciano d’Abruzzo DOC 2022,Red - Italy,1056.8,15,279.05,-243.5,534.25
+2025,Giró Ribot Ab Origine Brut NV,Sparkling - Spain,1048.04,16,317.28,-248.5,482.26
+2025,Ca'Botta Cerviero Rosso Veneto IGT 2020,Red - Italy,1047.01,14,361.34,-236.0,449.67
+2025,Buffalo Wings & Drumettes,Food - Snack,1029.49,69,0.0,-1.6,1027.89
+2025,Nicolas Feuillatte Reserve Exclusive Brut NV,Champagne - France,1014.19,9,467.5,-283.0,263.69
+2025,"Cheese Platter (4 Types Of cheese, crackers & nuts)",Food - Cheese,1011.82,44,880.0,-32.0,99.82
+2025,Collefrisio Ten Vintages 2019,Red - Italy,1005.11,8,182.94,-273.0,549.17
+2025,Ramón Do Casar Godello 2020,White - Spain,972.71,12,327.84,-313.9,330.97
+2025,Collefrisio Filare Montepulciano D’Abruzzo DOC 2022,Red - Italy,943.42,17,292.64,-103.7,547.08
+2025,Champagne Laurent-Perrier NV,Champagne - France,914.11,7,396.9,-182.0,335.21
+2025,Chateau La Patache Pomerol 2021,Red - France,911.22,7,413.0,-147.0,351.22
+2025,Chateau Sergant Laland-de Pomerol Metal Label 2022,Red - France,910.6,8,352.0,-195.0,363.6
+2025,Pierre Andre Chablis 2023,White - France,902.38,10,360.0,-151.0,391.38
+2025,Ca'Botta Pian Di Mezzo Amarone Della Valpolicella DOCG Riserva 2015,Red - Italy,839.06,5,285.0,-162.0,392.06
+2025,Charles Tort Hommage Cotes du Rhone Rouge1.5L 2019,Red - France,839.06,5,164.3,-162.0,512.76
+2025,Louis Latour Savigny-Les Beaune Rouge 2018,Red - France,830.14,7,343.0,-165.0,322.14
+2025,Charles Tort Chardonnay 2023,White - France,828.33,18,311.4,-32.0,484.93
+2025,Charles Tort Vacqueyras Rouge 2022,Red - France,822.78,8,219.04,-187.0,416.74
+2025,Palazzo di Varignana Pinot Nero 2022,Red - Italy,821.54,11,233.2,-172.0,416.34
+2025,Olivier Ravoire Crozes Hermitage Rouge 2022,Red - France,819.6,8,227.68,-148.5,443.42
+2025,Olivier Ravoire Vacqueyras Rouge 2022,Red - France,812.45,8,226.16,-173.0,413.29
+2025,Château Laubès Metal Label 2021,Red - France,795.39,9,252.0,-133.0,410.39
+2025,Collefrisio Pinot Grigio IGT Terre di Chieti 2024,White - Italy,791.5,12,155.0,-141.5,495.0
+2025,Collefrisio Sottosopra Vino di Amarene NV,Red - Italy,789.43,12,222.0,-227.5,339.93
+2025,Collefrisio Pinot Grigio IGT Terre di Chieti 2023,White - Italy,787.16,12,209.76,-200.0,377.4
+2025,Charles Tort Gigondas Rouge 2020,Red - France,786.99,7,224.35,-198.0,364.64
+2025,Collefrisio Confronto Rosso,Red - Italy,769.76,9,132.96,-156.0,480.8
+2025,Karaage,Food - Snack,321.1,25,125.0,0.0,196.1
+2025,Collefrisio GOLF 2019,Red - Italy,742.45,6,94.96,-203.0,444.49
+2025,Collefrisio Passerina Extra Dry NV,Sparkling - Italy,723.18,11,209.99,-203.0,310.19
+2025,The Balvenie 12 YO Double Wood,Liquor - Whisky (Scotch),709.96,3,265.2,-154.0,290.76
+2025,Charles Tort Grenache Syrah 2022,Red - France,705.5,16,273.76,-11.0,420.74
+2025,Champagne Louis Roederer Collection 244 Brut NV,Champagne - France,698.6,5,335.0,-127.5,236.1
+2025,Barcolobo Verdejo 2021,White - Spain,678.39,9,231.93,-216.0,230.46
+2025,Shinomine Yamahai Omachi Junmai Muroka Nama Genshu,Sake,671.45,6,270.0,-132.0,269.45
+2025,Ca'Botta Tenuta Cajo’ Amarone Della Valpolicella DOCG 2017,Red - Italy,664.33,5,87.96,-123.5,452.87
+2025,Giró Ribot Treasure Black Label Brut NV,Sparkling - Spain,663.51,8,207.6,-202.5,253.41
+2025,Collefrisio Appassimento Vino Rosso 2021,Red - Italy,657.92,9,199.8,-127.4,330.72
+2025,Collefrisio Bianco Terre Di Chieti IGT SEMIS 2019,White - Italy,652.11,7,213.85,-120.0,318.26
+2025,Red Wine,By Glass,14.68,1,0.0,0.0,14.68
+2025,Poggio Agli Scalzi Pierofosco Rosso 2019,Red - Italy,649.47,10,207.2,-88.0,354.27
+2025,La Chouffe,Beer,639.63,48,156.0,-280.0,203.63
+2025,Luncheon Meat Sticks,Food - Grilled,638.53,58,261.0,0.0,377.53
+2025,Luce Brunello di Montalcino DOCG 2016,Red - Italy,636.24,2,233.72,-150.0,252.52
+2025,Red Wine-Happy Hours,Wine By Glass,632.11,53,0.0,0.0,632.11
+2025,Collefrisio Semis Montepulciano D’Abruzzo DOC Magnum 1.5L 2008,Red - Italy,621.85,3,225.9,-198.0,197.95
+2025,Palazzo di Varignana Villa Amagioia Brut Blanc de Blanc NV,Sparkling - Italy,619.23,7,161.7,-155.1,302.43
+2025,Collefrisio Bianco Terre Di Chieti IGT SEMIS 2021,White - Italy,618.22,6,96.92,-154.0,367.3
+2025,The Balvenie 16 YO French Oak,Liquor - Whisky (Scotch),617.8,1,0.0,-260.0,357.8
+2025,Ca'Botta Pian Di Mezzo Amarone Della Valpolicella DOCG Riserva 2016,Red - Italy,614.07,4,172.18,-126.0,315.89
+2025,Domaine Du Cheval Blanc Bordeaux White 2023,White - France,583.43,8,176.0,-121.5,285.93
+2025,Charles Tort Vacqueyras Rouge 2023,Red - France,580.63,6,109.84,-121.0,349.79
+2025,Charles Tort Syrah 2022,Red - France,573.39,13,222.43,-11.0,339.96
+2025,Truffle Fries,Food - Snack,561.8,39,0.0,-4.0,557.8
+2025,Louis Latour Pouilly Fuisse 2021,White - France,561.49,5,240.0,-78.0,243.49
+2025,Otokoyama Junmai Ginjo,Sake,559.38,5,195.0,-108.0,256.38
+2025,Charles Tort Hommage Cotes du Rhone Rouge 2023,Red - France,559.2,7,66.39,-117.0,375.81
+2025,Kirei 92 Hattan Nishiki  Junmai Muroka Nama Genshu,Sake,555.2,5,216.0,-113.0,226.2
+2025,Shinbunshi (nwespaper) 65 Junmai muroka Nama Genshu,Sake,555.16,4,234.0,-112.5,208.66
+2025,Collefrisio PRESTIGE 2021,Red - Italy,546.32,6,90.44,-116.5,339.38
+2025,White Wine-Happy Hours,Wine By Glass,536.8,45,0.0,-1.3,535.5
+2025,Château Gravat Medoc Cru Bourgeois 2019,Red - France,529.6,6,156.0,-80.75,292.85
+2025,Yuho Tamazakae  Junmai Muroka Nama Kimoto,Sake,525.74,5,223.0,-89.5,213.24
+2025,Giró Ribot Ab Origine Brut Rosé NV,Sparkling - Spain,525.61,8,161.52,-143.5,220.59
+2025,Ca'Botta Tenuta Soprazocco Garda Riesling DOC 2021,White - Italy,522.68,7,130.44,-108.0,284.24
+2025,Trivento Golden Malbec 2018,Red - Argentina,504.7,6,234.0,-112.5,158.2
+2025,Charles Tort Chateauneuf du Pape rouge 2023,Red - France,497.01,4,85.06,-130.5,281.45
+2025,Ramirez de la Piscina Sta Ma Gran Reserva 2016,Red - Spain,480.47,4,184.0,-96.75,199.72
+2025,Nicolas Feuillatte  Brut Millesime,Champagne - France,478.42,3,204.0,-127.5,146.92
+2025,"Ca'Botta ""Torcinato"" Valpolicella Superiore DOC 2019",Red - Italy,472.37,6,47.12,-76.5,348.75
+2025,Cold Cut Platter,Food - Cold Cut,462.39,21,252.0,0.0,210.39
+2025,Mini Wagyu Burger,Food - Main,458.72,50,0.0,0.0,458.72
+2025,Olivier Ravoire Cote Rotie Rouge 2021,Red - France,449.61,3,115.74,-112.0,221.87
+2025,HONIG Napa Valley Cabernet Sauvignon 2018,Red - USA,448.29,3,204.0,-96.0,148.29
+2025,Chateau Ferriere Rouge 2012,Red - France,446.97,3,189.63,-80.0,177.34
+2025,Olivier Ravoire Saint Joseph Rouge 2021,Red - France,445.32,4,124.48,-60.0,260.84
+2025,Charles Tort Gigondas Rouge 2023,Red - France,442.22,4,63.9,-78.0,300.32
+2025,Wine Tasting,Wine Tasting,440.37,12,0.0,0.0,440.37
+2025,Chateau Kefraya Comte de M Rouge 2019,Red - Lebanon,429.66,3,195.0,-92.5,142.16
+2025,Livius Rosé Fermented In Cask Reserva 2018,Rose - Spain,425.68,5,158.3,-155.5,111.88
+2025,Charles Tort Chateauneuf du Pape Grenache 2019,Red - France,422.17,2,122.48,-113.0,186.69
+2025,Shinbunshi (nwespaper) 60 Hattan Nishiki Junmai Muroka Nama Genshu,Sake,420.94,3,174.0,-98.0,148.94
+2025,"Ca'Botta ""Cerviero"" Rosso Veneto IGT 2021",Red - Italy,419.16,5,45.98,-76.5,296.68
+2025,Ermanno Costa Barbera d'Alba DOC Superiore 2018,Red - Italy,418.05,5,153.5,-63.0,201.55
+2025,Richard Kershaw Clonal Chardonnay 2018,White - South Africa,415.15,4,0.0,-139.0,276.15
+2025,Manon Cotes de Provence Rose 2023,Rose - France,393.99,6,0.0,-105.0,288.99
+2025,Harushika Junmai Ginjo Nama Genshu,Sake,393.41,3,117.0,-98.0,178.41
+2025,Sausage Platter,Food - Snack,27.52,1,0.0,0.0,27.52
+2025,Collefrisio Le Cave Della Guardiuccia Rosè Brut – Abruzzo D.O.C. Rosè 2016,Sparkling - Italy,377.29,4,137.56,-125.0,114.73
+2025,Leth Wagram Gruner Veltliner Fels Klassik (O),White - Austria,375.89,5,140.0,-108.0,127.89
+2025,Ermanno Costa Balin Vino Bianco 2022,White - Italy,371.1,4,127.24,-50.0,193.86
+2025,Mannen Jumai Daiginjo Nama Genshu,Sake,364.24,3,165.0,-78.0,121.24
+2025,Gambas Al Ajillo,Food - Snack,357.8,13,0.0,0.0,357.8
+2025,Crispy Roasted Pork,Food - Grilled,357.8,26,195.0,0.0,162.8
+2025,Charles Tort Merlot Syrah 2022,Red - France,352.29,8,136.88,0.0,215.41
+2025,Furosen Usunigori Junmai Muroka Nama Genshu Yamahai,Sake,350.23,3,146.0,-75.0,129.23
+2025,Mix Grill platter,Food - Snack,348.79,19,0.0,-2.0,346.79
+2025,"Cheese Platter-half (4 Types Of cheese, crackers & nuts)",Food - Cheese,345.07,15,225.0,-12.5,107.57
+2025,Charles Tort Plan de Dieu CDR Villages Rouge 2022,Red - France,336.96,4,86.2,-81.0,169.76
+2025,Les Gravieres De Marsac Margaux 2021,Red - France,336.72,3,126.0,-78.0,132.72
+2025,Olivier Ravoire Gigondas Rouge 2021,Red - France,336.22,3,96.33,-72.0,167.89
+2025,Charles Tort Sauvignon 2023,White - France,334.32,6,103.8,-49.0,181.52
+2025,Collefrisio Filare Rosé Vino Rosato 2021,Rose - Italy,333.9,5,100.3,-155.0,78.6
+2025,Karaage (Chief's Recipe),Food - Snack,330.42,20,0.0,-1.8,328.62
+2025,Palazzo di Varignana Villa Amagioia Brut Blanc de Noirs NV,Sparkling - Italy,322.87,4,96.44,-77.0,149.43
+2025,Chateau Les Grand Vallons 2020,Red - France,317.89,4,96.0,-72.25,149.64
+2025,Spicy Olio With Prawns,Food - Pasta,313.39,18,0.0,-7.78,305.61
+2025,EIRA Sparkling Mineral Water 700ml,Mineral Water,309.13,64,160.0,-132.75,16.38
+2025,Chateau Kefraya Rouge 2020,Red - Lebanon,308.2,3,135.0,-66.0,107.2
+2025,Manon Cotes de Provence Blanc 2023,White - France,300.51,4,81.2,-84.0,135.31
+2025,Matawhero Single Vineyard Sauvignon Blanc 2023,White - New Zealand,300.18,4,112.0,-80.0,108.18
+2025,Marques Casa Concha Cabernet Sauvignon 2021,Red - Chile,297.54,4,144.0,-48.0,105.54
+2025,Corona,Beer,295.73,24,58.08,-115.0,122.65
+2025,Veluta Carbonara,Food - Pasta,291.93,20,0.0,0.0,291.93
+2025,Lismore Chardonnay 2018,White - South Africa,282.66,3,0.0,-90.0,192.66
+2025,Charles Tort Cotes du Rhone Rouge 2023,Red - France,282.35,4,36.86,-86.25,159.24
+2025,Pieter Ferreira Blanc de Blancs 2013,Sparkling - South Africa,281.01,3,0.0,-70.0,211.01
+2025,Ca'Botta Le Poggie Bianco Veneto 2024,White - Italy,280.8,4,17.33,-67.5,195.97
+2025,Livius White Fermented In Cask Reserva 2018,White - Spain,279.15,3,93.99,-103.0,82.16
+2025,Nicolas Feuillatte Reserve Exclusive Rose Brut NV (Box),Champagne - France,278.94,2,131.0,-45.0,102.94
+2025,Charles Tort Chateauneuf du Pape rouge 2022,Red - France,278.94,2,81.64,-45.0,152.3
+2025,White Wine,Wine By Glass,278.9,19,0.0,0.0,278.9
+2025,SAERO,Soju,276.1,12,87.0,-10.5,178.6
+2025,Ser Lunch Voucher,Food - Voucher,275.23,20,0.0,0.0,275.23
+2025,Jordan Barrel Fermented Chardonnay 2019,White - South Africa,273.24,4,0.0,-87.0,186.24
+2025,Naka Shuzo Asahi Wakamatsu Omachi Junmai Muroka Nama Genshi Yamahai,Sake,270.84,2,120.0,-58.0,92.84
+2025,Jean Pabiot Les Fines Caillottes Pouilly Fume 2021,White - France,267.39,3,114.0,-38.4,114.99
+2025,Nikka Miyagikyo Single Malt,Liquor - Whisky (Japan),266.13,1,95.0,-112.0,59.13
+2025,Charles Tort Merlot 2022,Red - France,265.01,6,102.66,-9.6,152.75
+2025,Pizza di Granchio,Food - Pizza,264.22,16,224.0,0.0,40.22
+2025,Parma di Rucola,Food - Pizza,262.39,13,221.0,0.0,41.39
+2025,Louis Latour Bourgogne Pinot Noir 2022,Red - France,258.37,3,112.5,-18.0,127.87
+2025,Classic Fried Rice,Food - Lunch,63.58,7,0.0,0.0,63.58
+2025,Ballantine’s 17 YO,Liquor - Whisky (Scotch),254.56,1,92.0,-27.5,135.06
+2025,Bodegas Alvia Sol Del Conde 2016,Red - Spain,253.28,3,85.02,-67.5,100.76
+2025,Sweet Potato Fries,Food - Snack,253.21,20,0.0,0.0,253.21
+2025,Ramirez de la Piscina Reserva 2018,Red - Spain,252.54,3,102.0,-58.5,92.04
+2025,Louis Latour Macon Lugny Les Genievres 2022,White - France,251.42,3,99.0,-45.0,107.42
+2025,Laphroaig 10 YO,Liquor - Whisky (Scotch),247.2,1,87.0,-105.0,55.2
+2025,Spicy Aglio Olio With Prawns,Food - Pasta,244.81,15,0.0,-14.87,229.94
+2025,Spam Fries,Food - Snack,244.61,19,0.0,-7.0,237.61
+2025,Mentaiko Fries,Food - Snack,244.04,17,0.0,0.0,244.04
+2025,Olivier Ravoire Chateauneuf du Pape Rouge 2022,Red - France,240.68,2,77.16,-26.0,137.52
+2025,Collefrisio In&Out Montepulciano Abruzzo DOC (Single Wooden Case) 2017,Red - Italy,236.18,2,91.28,-16.0,128.9
+2025,Hauts de Roc Saliere  Mediterranee Viognier NV,White - France,229.69,5,86.9,-4.0,138.79
+2025,Old Pulteney 12 YO Single Malt,Liquor - Whisky (Scotch),228.11,1,81.0,-96.0,51.11
+2025,Chateau Kefraya Breteches Rouge 2022,Red - Lebanon,225.47,3,96.0,-64.0,65.47
+2025,Domaine Gilles Jourdan Cote de Nuits-Villages Blanc 2019,White - France,224.15,2,88.0,-48.0,88.15
+2025,Pierre Andre Pouilly Fuisse 2022,White - France,224.15,2,96.0,-48.0,80.15
+2025,Shinomine Kimoto Yamada Nishik Kimoto Junmai Muroka Nama Genshu,Sake,223.65,2,92.0,-42.0,89.65
+2025,Louis Latour Marsannay Rouge 2022,Red - France,223.16,2,93.0,-36.0,94.16
+2025,Francois Dion  Sauvignon Blanc 2023,White - France,220.18,5,75.0,0.0,145.18
+2025,Vordings Rose Gin,Liquor - Gin (Holland),220.18,2,184.0,0.0,36.18
+2025,Sparkling Wine - Happy Hours,Wine By Glass,218.35,18,0.0,0.0,218.35
+2025,Pieter Ferreira Rose 2013,Sparkling - South Africa,216.71,2,0.0,-69.0,147.71
+2025,Domaine Du Cheval Blanc Medium Sweet,White - France,216.09,3,44.0,-61.5,110.59
+2025,Poggiotondo Chianti Riserva DOCG 2019,Red - Italy,215.28,2,90.0,-51.75,73.53
+2025,Domaine Du Cheval Blanc Bordeaux Red 2022,Red - France,214.52,3,66.0,-42.5,106.02
+2025,Ramón Do Casar Lento 2019,White - Spain,208.19,2,85.86,-77.0,45.33
+2025,Spicy Olio,Food - Lunch,206.04,14,0.0,-22.09,183.95
+2025,Simonnet Febvre Chablis 2022,White - France,204.56,2,80.0,-33.0,91.56
+2025,Collefrisio Filare Trebbiano D’Abruzzo DOC 2023,White - Italy,196.42,3,49.5,-45.5,101.42
+2025,Bersano Monteolivo Moscato D'Asti DOCG 2021,White - Italy,194.97,3,72.0,-28.0,94.97
+2025,Fried fish cube,Food - Snack,190.83,13,0.0,0.0,190.83
+2025,Neethlingshof Owl Post Pinotage 2019,Red - South Africa,187.2,2,80.0,-45.0,62.2
+2025,Domaine Du Chapitre Macon Village 2023,White - France,186.79,2,70.0,-40.0,76.79
+2025,Ramón Do Casar Nobre 2021,White - Spain,184.53,2,61.42,-68.25,54.86
+2025,Braised Pork With Rice,Food - Main,180.0,14,0.0,-13.3,166.7
+2025,Pierre Andre Bourgogne Hautes Côtes de Nuits Pinot Noir 2022,Red - France,178.23,2,76.0,-47.5,54.73
+2025,Louis Latour Macon Lugny Les Genievres 2024,White - France,177.45,2,66.0,-38.0,73.45
+2025,Domaine Du Chapitre Moulin A Vent 2023,Red - France,176.67,2,66.0,-28.5,82.17
+2025,Francois Dion Sauvignon Blanc 2023,White - France,176.15,4,60.0,0.0,116.15
+2025,Pomodora Rosa,Food - Pasta,175.05,12,0.0,0.0,175.05
+2025,Trinity Oaks Cabernet Sauvignon 2022,Red - USA,168.85,2,60.0,-45.0,63.85
+2025,Trinity Oaks Merlot 2021,Red - USA,168.85,2,60.0,-45.0,63.85
+2025,Ca'Botta Tenuta Costa Rossa Valpolicella Ripasso DOC Superiore 2016,Red - Italy,168.85,2,52.66,-45.0,71.19
+2025,Trinity Oaks Pinot Noir 2022,Red - USA,168.11,2,60.0,-36.0,72.11
+2025,Four Pillars Bloody Shiraz,Liquor - Gin (Australia),166.98,1,75.0,-44.5,47.48
+2025,Penny's Hill Cracking Black Shiraz 2022,Red - Australia,166.62,2,66.0,-18.0,82.62
+2025,Penny's Hill Edwards Road Cabernet Sauvignon 2022,Red - Australia,166.62,2,66.0,-18.0,82.62
+2025,Braised Pork With Rice Set,Food - Lunch (11:30am-2:30pm),63.76,5,0.0,0.0,63.76
+2025,Sijnn Low Profile 2018,Red - South Africa,162.06,2,0.0,-51.6,110.46
+2025,Golden Fried Crispy Squid,Food - Snack,161.47,11,0.0,0.0,161.47
+2025,Meat Lover Pizza,Food - Pizza,161.47,8,136.0,0.0,25.47
+2025,Pepperoni,Food - Pizza,161.47,11,138.6,0.0,22.87
+2025,"Ca'Botta ""ALTA"" Valpolicella Ripasso Superiore DOC 2020",Red - Italy,159.47,2,42.88,-42.5,74.09
+2025,Lammershoek White Mysteries 2017,White - South Africa,158.64,2,0.0,-54.6,104.04
+2025,Poggiotondo Chianti Superiore DOCG 2021,Red - Italy,158.42,2,66.0,-29.75,62.67
+2025,Matawhero Church House Pinot Noir 2021,Red - New Zealand,155.96,2,58.0,0.0,97.96
+2025,Moo Ping,Food - Snack,97.45,7,52.5,-2.4,42.55
+2025,Braised Pork With Noodle Set,Food - Lunch,127.81,10,0.0,-3.47,124.34
+2025,Sparkling wine,Wine By Glass,150.46,10,0.0,0.0,150.46
+2025,Lawson's Dry Hill Pinot Noir 2020,Red - New Zealand,150.09,2,60.0,-40.0,50.09
+2025,Las Ninas Mapuche Cab Sauv Syrah 2022,Red - Chile,149.76,2,48.0,-36.0,65.76
+2025,Tradicion De Aresan 2022,Red - Spain,149.76,2,46.0,-36.0,67.76
+2025,Palazzo di Varignana Pinot Nero 2021,Red - Italy,149.43,2,45.08,-32.0,72.35
+2025,Marques Casa Concha Chardonnay 2021,White - Chile,149.1,2,72.0,-28.0,49.1
+2025,Giró Ribot Ab Origine Brut Reserva NV,Sparkling - Spain,143.51,2,40.66,-38.1,64.75
+2025,Loopy Fries,Food - Snack,141.28,11,0.0,0.0,141.28
+2025,Castillo De Aresan Tempranillo 2022,Red - Spain,141.02,2,44.0,-41.25,55.77
+2025,Leth Wagram Duett Gruner  Veltliner & Riesling (O),White - Austria,140.4,2,48.0,-33.75,58.65
+2025,Mixed Premium Nuts,Food - Snack,139.94,24,72.0,-6.0,61.94
+2025,Chicken Herbal Soup With Noodle,Food - Lunch (11:30am-2:30pm),45.41,5,0.0,0.0,45.41
+2025,Charles Tort Chardonnay 2024,White - France,134.86,3,48.27,0.0,86.59
+2025,Brätwurst,Food - Grilled,133.94,12,62.4,0.0,71.54
+2025,Shinbunshi (nwespaper) 60 Junmai muroka Nama Genshu,Sake,133.03,1,58.0,0.0,75.03
+2025,Jordan Inspector Peringuey Chenin Blanc 2019,White - South Africa,131.91,2,0.0,-42.0,89.91
+2025,Collefrisio Filare Trebbiano D’Abruzzo DOC 2024,White - Italy,131.04,2,29.44,-31.5,70.1
+2025,Pierre Andre Beaune 2021,Red - France,130.75,1,56.0,-28.0,46.75
+2025,Kessler Zink Riesling Kabinett 2021,White - Germany,130.17,2,44.0,-21.0,65.17
+2025,Trivento Reserve Cabernet Sauvignon 2020,Red - Argentina,130.17,2,50.0,-21.0,59.17
+2025,Les Hauts de Beaumiere Luberon Blanc 2023,White - France,129.89,2,34.68,-17.5,77.71
+2025,Sausage Fried Rice,Food - Lunch (11:30am-2:30pm),81.74,9,0.0,0.0,81.74
+2025,Spaghetti alla Carbonara,Food - Pasta,123.85,9,100.8,0.0,23.05
+2025,Marques Casa Concha Heritage 2020,Red - Chile,122.49,1,68.0,-39.0,15.49
+2025,Ramirez de la Piscina Sta Ma Gran Reserva,Red - Spain,121.41,1,46.0,-26.0,49.41
+2025,Garlic Butter Bread,Food - Snack,121.39,22,0.0,-3.5,117.89
+2025,Miyako-Bijin Brown Label Yamahai Junmai Muroka Nama Genshu,Sake,116.74,1,50.0,-25.0,41.74
+2025,Furosen Nakagumi Yamahai Junmai Muroka Nama Genshu,Sake,116.74,1,50.0,-25.0,41.74
+2025,Crispy Fried Oyster Mushrooms,Food - Snack,115.6,9,0.0,0.0,115.6
+2025,Bravium Russian Valley Pinot Noir 2022,Red - USA,112.07,1,44.0,-24.0,44.07
+2025,Brie Cheese,Food - Cheese,111.5,6,48.0,-17.0,46.5
+2025,Mushroom Soup,Food - Soup,4.59,1,0.0,0.0,4.59
+2025,Smoked Duck Breast (Original flavour),Food - Grilled,110.09,10,34.0,0.0,76.09
+2025,Tartufo e Funghi Con Rucola,Food - Pizza,110.09,5,91.0,0.0,19.09
+2025,Prosciutto e Funghi,Food - Pizza,110.09,8,89.6,0.0,20.49
+2025,Collefrisio In&Out Montepulciano d'Abruzzo DOC 2018,Red - Italy,106.51,1,29.68,-12.96,63.87
+2025,Terada Honke Daigo no Shizuku Junmai Muroka Nama Genshu Bodaimoto,Sake,105.87,1,46.0,-60.0,-0.13
+2025,Margherita,Food - Pizza,102.75,8,81.6,0.0,21.15
+2025,Garlic breads,Food - Grilled,102.75,14,82.6,0.0,20.15
+2025,Eigashima Shuzo Yamato Damashi Mizumoto Junmai Muraka,Sake,102.73,1,45.0,-22.0,35.73
+2025,Veluto Carbonara,Food - Lunch (11:30am-2:30pm),14.59,1,0.0,0.0,14.59
+2025,Chateau Rahoul Blanc 2018,White - France,101.83,1,29.09,-11.0,61.74
+2025,Spaghetti Marinara,Food - Pasta,100.92,5,85.0,0.0,15.92
+2025,Collefrisio Ten Vintages Montepulciano Abruzzo DOC Limited Edition 2017,Red - Italy,98.9,1,39.5,-12.03,47.37
+2025,Roederer Estate Quartet Brut NV,Sparkling - USA,94.22,1,41.0,-30.0,23.22
+2025,Keermont Syrah 2015,Red - South Africa,94.22,1,0.0,-30.0,64.22
+2025,HAHN S.L.H Chardonnay 2019,White - USA,94.22,1,50.0,-30.0,14.22
+2025,Sijnn White Blend 2018,White - South Africa,92.57,1,0.0,-10.0,82.57
+2025,Delivery charge 1,Delivery charge,91.74,5,100.0,0.0,-8.26
+2025,Onion Rings,Food - Snack,89.91,7,0.0,0.0,89.91
+2025,Domaine Du Chapitre Bourgogne Chardonnay 2022,White - France,88.72,1,35.0,-19.0,34.72
+2025,Cheese Wiener,Food - Grilled,88.07,6,34.2,0.0,53.87
+2025,Marques Casa Concha Carmenere 2021,Red - Chile,85.17,1,36.0,-31.5,17.67
+2025,Domaine Saint Germain Bourgogne Blanc 2019,White - France,84.8,1,26.35,-27.0,31.45
+2025,Wachter-Wiesier Blaufrankisch Bela Joska 2018,Red - Austria,84.8,1,37.0,-27.0,20.8
+2025,Herdade do Peso Revelado 2019,Red - Portugal,84.8,1,42.0,-27.0,15.8
+2025,Louis Latour Bourgogne Chardonnay 2021,White - France,84.06,1,40.0,-18.0,26.06
+2025,Hawaiian,Food - Pizza,82.57,6,67.2,0.0,15.37
+2025,Las Ninas Ella Cabernet Sauvignon Riserva 2022,Red - Chile,80.09,1,27.0,-25.5,27.59
+2025,Charles Tort Sablet Cote du Rhone Villages Rouge 2023,Red - France,80.09,1,0.0,-25.5,54.59
+2025,Ca'Botta Le Pergolette Garganega Bianco Veronese IGT 2021,White - Italy,79.39,1,0.0,-17.0,62.39
+2025,Chateau Roc de Villepreux 2022,Red - France,79.39,1,25.0,-17.0,37.39
+2025,Braised Pork With Noodle,Food - Main,77.35,6,0.0,-3.5,73.85
+2025,Gai Ping,Food - Snack,29.36,2,15.0,0.0,14.36
+2025,Dr. H. Thanisch Berncasteler Kues Riesling Alte Reben 2018,White - Germany,75.38,1,32.0,-24.0,19.38
+2025,Smugglers Boot Chardonnay 2018,White - South Africa,75.38,1,0.0,-24.0,51.38
+2025,Palazzo di Varignana Chardonnay 2023,White - Italy,75.05,1,20.9,-20.0,34.15
+2025,Ca'Botta Le Pergolette Garganega Bianco Veronese IGT 2019,White - Italy,75.05,1,24.8,-20.0,30.25
+2025,Ca'Botta Tenuta Soprazocco Garda Riesling DOC 2020,White - Italy,74.72,1,18.15,-16.0,40.57
+2025,Spiegelau Casual Entertaining decanter 1.4L,Other - Wine Glass,73.39,2,0.0,0.0,73.39
+2025,Chicken Herbal Soup With Rice,Food - Main,9.17,1,0.0,0.0,9.17
+2025,Pomodoro Rosa,Food - Lunch (11:30am-2:30pm),14.59,1,0.0,0.0,14.59
+2025,Lawson's Dry Hill Sauvignon Blanc 2022,White - New Zealand,70.98,1,27.0,-15.2,28.78
+2025,Ca'Botta Cabernet Sauvignon 2020,Red - Italy,70.05,1,0.0,-15.0,55.05
+2025,Leth Wagram Zweigelt Klassik (0),Red - Austria,70.05,1,25.5,-15.0,29.55
+2025,Spicy Olio With Prawn,Food - Lunch (11:30am-2:30pm),52.41,3,0.0,-4.73,47.68
+2025,Steffen Riesling 'Steillage' 2023,White - Germany,69.43,1,23.0,-7.5,38.93
+2025,"Ca'Botta ""ANTON""Benaco Bresciano IGT 2020",Red - Italy,68.81,1,15.31,0.0,53.5
+2025,Ca'Botta Le Renette Rosato Verona IGT 2020,Rose - Italy,66.78,1,19.3,-31.0,16.48
+2025,Squid Champong Ramyun,Food - Lunch (11:30am-2:30pm),63.58,7,0.0,0.0,63.58
+2025,Trivento Reserve Chardonnay 2021,White - Argentina,66.04,1,25.0,-22.0,19.04
+2025,Ca'Botta Merlot 2018,Red - Italy,65.95,1,14.98,-21.0,29.97
+2025,Steffen Trittenheimer Spatlese 2023,White - Germany,65.67,1,20.0,-17.5,28.17
+2025,Ca'Botta Le Poggie Bianco Veneto IGT 2020,White - Italy,65.38,1,20.52,-14.0,30.86
+2025,Ca'Botta Cinca Pinot Grigio DOC 2022,White - Italy,65.09,1,18.27,-10.5,36.32
+2025,Chicken Cocktail Sausage,Food - Grilled,64.22,5,25.0,0.0,39.22
+2025,Bak Kut Teh Rice Set,Food - Lunch,25.5,2,0.0,0.0,25.5
+2025,White wine,By Glass,59.71,4,0.0,-12.0,47.71
+2025,Larnaudie Duck Rillettes 180g,Food - Cold Cut,58.72,2,34.0,0.0,24.72
+2025,Golden Yolk Pasta,Food - Lunch,14.59,1,0.0,0.0,14.59
+2025,Wooden Crate Big,Wooden box,55.05,4,0.0,0.0,55.05
+2025,Grilled Saba Fish,Food - Snack,51.67,4,0.0,-3.5,48.17
+2025,Curry Chicken With Rice Set,Food - Lunch,51.26,4,0.0,-3.0,48.26
+2025,Yakitori,Food - Snack,49.91,3,0.0,-4.5,45.41
+2025,Linguine alla White Wine Vongole - *Mild Spicy,Food - Pasta,46.79,3,39.6,0.0,7.19
+2025,Miyagikyo Single Malt,Whisky By Glass,46.28,2,0.0,-5.0,41.28
+2025,KI NO BI Kyoto Dry Gin,Gin By Glass,46.28,2,0.0,-5.0,41.28
+2025,Roasted Pork Knuckle,Food - Grilled,46.28,1,21.0,-5.0,20.28
+2025,Chocolate Cake,Food - Dessert,45.87,1,0.0,0.0,45.87
+2025,Spiegelau Style Champagne Flute 4670187 (4/Box),Other - Wine Glass,45.87,1,27.1,0.0,18.77
+2025,Spiegelau Style Burgundy 4670180 (4/Box),Other - Wine Glass,45.87,1,27.1,0.0,18.77
+2025,Spiegelau Salute Bordeaux 4670177 (4/Box),Other - Wine Glass,45.87,1,27.1,0.0,18.77
+2025,Francois Dion Cabernet Sauvignon 2023,Red - France,44.04,1,15.0,0.0,29.04
+2025,Pizza Marinara,Food - Pizza,44.04,2,36.4,0.0,7.64
+2025,Chilled Au Prosciutto Sliced,Food - Cold Cut,41.9,3,22.5,-7.5,11.9
+2025,Tortellini e Tartufo,Food - Pasta,40.37,2,34.0,0.0,6.37
+2025,Tortilla Chips With Nacho Cheese Sauce,Food - Snack,38.53,3,0.0,0.0,38.53
+2025,Italian Pork Sausage,Food - Grilled,38.53,3,19.5,0.0,19.03
+2025,French Fries,Food - Snack,33.28,3,0.0,-3.0,30.28
+2025,Karaage-Chief Recipe,Food - Snack,33.03,2,0.0,0.0,33.03
+2025,Penne di Brasto Menzo,Food - Pasta,33.03,2,27.0,0.0,6.03
+2025,Rosette de Lyon Sliced Salami,Food - Cold Cut,30.02,2,13.0,-8.0,9.02
+2025,Cheese cake,Food - Dessert,29.36,1,13.0,0.0,16.36
+2025,Beef Meatball,Food - Snack,29.36,2,0.0,0.0,29.36
+2025,Cheesecake,Food - Dessert,29.36,1,13.0,0.0,16.36
+2025,Truffle Bockwurst,Food - Grilled,29.36,2,15.5,0.0,13.86
+2025,Whisky-Nikka Miyagikyo (SM),By Glass,27.89,1,0.0,-4.5,23.39
+2025,whisky-Nagahama Roman 8 YO (BM),By Glass,27.89,1,0.0,-4.5,23.39
+2025,Delivery charge 2,Delivery charge,27.52,1,30.0,0.0,-2.48
+2025,Spaghetti Aglio e Olio,Food - Pasta,27.52,3,23.25,0.0,4.27
+2025,Vegetarian Fried Rice,Food - Lunch (11:30am-2:30pm),18.17,2,0.0,0.0,18.17
+2025,Double bottles wooden box with logo,Wooden box,26.59,2,13.0,-22.0,-8.41
+2025,Golden Nugget,Food - Snack,25.69,2,0.0,0.0,25.69
+2025,Bak Kut Teh,Food - Main,25.69,2,0.0,0.0,25.69
+2025,Cottage Delight Pork and Stilton Pate 180g,Food - Cold Cut,25.69,1,14.0,0.0,11.69
+2025,Cottage Delight Duck & Armagnac Pate 180g,Food - Cold Cut,25.69,1,14.0,0.0,11.69
+2025,Braised Chicken Mushroom Set,Food - Lunch,25.5,2,0.0,0.0,25.5
+2025,Negroni,Cocktail,23.35,1,0.0,-5.0,18.35
+2025,Hendricks Flora Adora,Gin By Glass,23.14,1,0.0,-2.5,20.64
+2025,Maker's Mark Bourbon Grain & Malt,Whisky By Glass,23.14,1,0.0,-2.5,20.64
+2025,Ballantine’s 17 YO Blend Malt,Whisky By Glass,23.14,1,0.0,-2.5,20.64
+2025,Gin Mare,Gin By Glass,22.94,1,0.0,0.0,22.94
+2025,Laproaig 10 YO Single Malt,Whisky By Glass,22.94,1,0.0,0.0,22.94
+2025,Long Island Tea,Cocktail,22.94,1,0.0,0.0,22.94
+2025,Linguine Salmone di Fumo e Crema di Gamberi,Food - Pasta,20.18,1,17.0,0.0,3.18
+2025,Aperol Spritz,By Glass,18.76,1,0.0,-5.0,13.76
+2025,Add On - Veggie,Food - Lunch (11:30am-2:30pm),18.35,7,0.0,0.0,18.35
+2025,Bratwurst,Food - Grilled Sausage,18.35,1,0.0,0.0,18.35
+2025,Pork Ribs,Food - Main,17.43,1,0.0,0.0,17.43
+2025,Pizza di Menzo,Food - Pizza,16.51,1,13.5,0.0,3.01
+2025,Cottage Delight Duck and French Brandy Pate Mini 90g,Food - Cold Cut,16.51,1,8.0,0.0,8.51
+2025,Add On - Drink,Food - Lunch,6.88,5,0.0,0.0,6.88
+2025,Spaghetti alla Bolognese,Food - Pasta,13.76,1,11.2,0.0,2.56
+2025,DUVEL 330ml,Beer,13.01,1,4.75,-2.0,6.26
+2025,Chicken Popcorn,Food - Snack,12.84,1,5.0,0.0,7.84
+2025,Fried luncheon meat,Food - Snack,11.01,1,0.0,0.0,11.01
+2025,Ice cream - Scooped,Food - Dessert,9.17,5,0.0,0.0,9.17
+2025,Single bottle wooden box without logo,Wooden box,9.17,1,4.0,0.0,5.17
+2025,Wooden Crate Small,Wooden box,9.17,2,0.0,0.0,9.17
+2025,Single bottle wooden box with logo,Wooden box,9.17,1,4.5,0.0,4.67
+2025,Coke,Drink,3.69,2,0.0,-0.3,3.39
+2025,Add On - Garlic Butter Bread,Food - Lunch,7.34,2,0.0,0.0,7.34
+2025,Green Tea,Food - Drink,1.83,1,0.0,0.0,1.83
+2025,Eco box-takeaway,Food - takeaway box,5.5,12,0.0,0.0,5.5
+2025,Ice Lemon Tea,Food - Drink,1.83,1,0.0,0.0,1.83
+2025,Served by Coravin,Wine By Glass,1.85,1,1.0,-0.2,0.65
+2025,Ayataka Green Tea,Drink,1.83,1,0.0,0.0,1.83
+2025,Ginger Ale,Gin By Glass,1.83,1,0.0,0.0,1.83
+2025,Add On - Noodle,Food - Lunch (11:30am-2:30pm),1.83,1,0.0,0.0,1.83
+2025,Soda Water,By Glass,1.83,1,0.56,0.0,1.27
+2025,Add On - Egg,Food - Lunch (11:30am-2:30pm),0.92,1,0.0,0.0,0.92
+2026 YTD,Ca'Botta Tenuta Cajo’ Amarone Della Valpolicella DOCG 2017,Red - Italy,4048.51,27,1187.46,-1087.5,1773.55
+2026 YTD,Collefrisio In&Out 2020,Red - Italy,3500.53,31,752.68,-1062.0,1685.85
+2026 YTD,Ca'Botta Amarone Della Valpolicella DOCG 2016,Red - Italy,3047.67,25,802.0,-799.5,1446.17
+2026 YTD,Charles Tort Chateauneuf du Pape rouge 2023,Red - France,3000.83,22,935.66,-899.0,1166.17
+2026 YTD,Collefrisio Primitivo IGT Salento 2022,Red - Italy,2896.44,27,703.89,-512.5,1680.05
+2026 YTD,Charles Tort Hommage Cotes du Rhone Rouge 2023,Red - France,2653.89,32,708.16,-486.0,1459.73
+2026 YTD,Charles Tort Gigondas Rouge 2023,Red - France,2435.77,20,639.0,-611.0,1185.77
+2026 YTD,Chateau La Patache Pomerol 2021,Red - France,2297.98,17,1003.0,-442.25,852.73
+2026 YTD,package-event,Food - Package,2258.21,16,0.0,0.0,2258.21
+2026 YTD,Ca'Botta Costa Rossa Valpolicella Ripasso DOC Superiore 2018,Red - Italy,2235.64,25,647.75,-465.0,1122.89
+2026 YTD,Collefrisio Appassimento Vino Rosso 2022,Red - Italy,2225.95,28,520.52,-514.25,1191.18
+2026 YTD,Charles Tort Vacqueyras Rouge 2023,Red - France,2155.6,21,576.66,-440.0,1138.94
+2026 YTD,Collefrisio GOLF 2019,Red - Italy,2056.33,16,487.84,-560.0,1008.49
+2026 YTD,"Ca'Botta ""Cerviero"" Rosso Veneto IGT 2021",Red - Italy,2028.52,30,689.7,-256.5,1082.32
+2026 YTD,Collefrisio Ten Vintages 2019,Red - Italy,1967.64,15,457.35,-497.0,1013.29
+2026 YTD,"Ca'Botta ""Torcinato"" Valpolicella Superiore DOC 2019",Red - Italy,1958.23,24,565.44,-427.5,965.29
+2026 YTD,Free Flow,Wine By Glass,1948.62,36,0.0,0.0,1948.62
+2026 YTD,Collefrisio Semis Montepulciano D’Abruzzo DOC 2016,Red - Italy,1860.77,17,428.4,-336.0,1096.37
+2026 YTD,Collefrisio Confronto Rosso,Red - Italy,1680.73,20,443.2,-355.5,882.03
+2026 YTD,Domaine Lebreuil Savigny Les Beaune Aux Grands Liards 2022,Red - France,1560.11,14,645.12,-228.0,686.99
+2026 YTD,Charles Tort Cotes du Rhone Rouge 2023,Red - France,1517.16,22,405.46,-330.0,781.7
+2026 YTD,Collefrisio PRESTIGE 2021,Red - Italy,1350.67,17,384.37,-247.0,719.3
+2026 YTD,Collefrisio Anniversary Montepulciano Abruzzo DOC Limited Edition 2017,Red - Italy,1316.77,10,304.9,-392.0,619.87
+2026 YTD,ZUBROWKA Gin Bialowieski,Liquor - Gin,1188.99,9,324.0,-400.0,464.99
+2026 YTD,The Black Chook Sparkling Shiraz,Sparkling - Australia,1123.77,15,405.0,-221.25,497.52
+2026 YTD,INEDIT Damm 750ml,Beer,1068.75,41,492.8,-132.6,443.35
+2026 YTD,Charles Tort Sablet Cote du Rhone Villages Rouge 2023,Red - France,1027.1,13,268.45,-161.5,597.15
+2026 YTD,Olivier Ravoire Chateauneuf du Pape Blanc 2022,White - France,952.14,7,260.82,-253.75,437.57
+2026 YTD,Red Wine,Wine By Glass,944.7,64,0.0,-63.6,881.1
+2026 YTD,Schwarz The Butcher Pinot Noir 2021,Red - Austria,923.12,11,330.0,-180.0,413.12
+2026 YTD,Charles Tort Chardonnay 2024,White - France,897.16,14,225.26,-210.0,461.9
+2026 YTD,Bodegas Alvia  Livius Graciano Reserva 2014,Red - Spain,896.09,8,334.24,-186.0,375.85
+2026 YTD,Charles Tort Plan de Dieu CDR Villages Rouge 2022,Red - France,887.82,11,237.05,-108.0,542.77
+2026 YTD,Ca'Botta Pian Di Mezzo Amarone Della Valpolicella DOCG Riserva 2016,Red - Italy,872.37,5,290.9,-232.0,349.47
+2026 YTD,Charles Tort Sauvignon 2024,White - France,857.4,13,209.17,-273.0,375.23
+2026 YTD,Terroir Al Límit Terra De Cuques Negre Priorat 2022,Red - Spain,849.89,7,287.0,-182.0,380.89
+2026 YTD,Chouffe La Belgian Blonde 330ml,Beer,802.79,70,350.0,-91.6,361.19
+2026 YTD,Red Wine-Happy Hours,Wine By Glass,799.08,67,0.0,0.0,799.08
+2026 YTD,Ca'Botta Le Poggie Bianco Veneto 2024,White - Italy,790.08,12,207.96,-168.75,413.37
+2026 YTD,Collefrisio In&Out BLACK Label 2019,Red - Italy,774.59,5,178.5,-214.5,381.59
+2026 YTD,Castillo De Aresan Terruno Reserva 2021,Red - Spain,767.06,9,261.0,-123.25,382.81
+2026 YTD,Ca'Botta Valpolicella Superiore DOC Alta 2019,Red - Italy,746.52,12,229.56,-96.75,420.21
+2026 YTD,Pierre Andre Chablis 2023,White - France,742.2,8,288.0,-100.0,354.2
+2026 YTD,Hacienda Solano Vinas Viejas 2020,Red - Spain,716.41,7,313.95,-121.0,281.46
+2026 YTD,Ca'Botta Prosecco Doc Ym Extra Dry NV,Sparkling - Italy,697.07,11,183.92,-164.5,348.65
+2026 YTD,Livius White Fermented In Cask Reserva 2018,White - Spain,683.72,12,375.96,-114.0,193.76
+2026 YTD,Collefrisio Pinot Grigio IGT Terre di Chieti 2024,White - Italy,675.1,11,170.5,-154.0,350.6
+2026 YTD,Spam Fries,Food - Snack,668.12,52,0.0,-2.8,665.32
+2026 YTD,Ca'Botta Tenuta Soprazocco Garda Riesling DOC 2021,White - Italy,667.82,9,170.1,-88.0,409.72
+2026 YTD,Nicolas Feuillatte Reserve Exclusive Rose Brut NV,Champagne - France,666.65,5,290.0,-185.0,191.65
+2026 YTD,SAERO,Soju,666.15,28,203.0,-290.0,173.15
+2026 YTD,Palazzo di Varignana Villa Amagioia Brut Blanc de Blanc NV,Sparkling - Italy,661.39,9,207.9,-165.75,287.74
+2026 YTD,Bodega Vivaltus 'La Fleur'a Vivaltu 2016,Red - Spain,654.92,5,285.0,-154.0,215.92
+2026 YTD,Gregorio Martinez Gran Reserva DOC 2015,Red - Spain,651.7,7,247.8,-115.0,288.9
+2026 YTD,Buffalo Wings & Drummets,Food - Grilled,627.67,38,143.0,-1.8,482.87
+2026 YTD,Tenuta San Guido Le Difese 2023,Red - Italy,617.52,5,280.0,-145.5,192.02
+2026 YTD,"Tenuta Mocenni Bindi Sergardi ""Calidonia"" Chianti Classico Riserva DOCG 2020",Red - Italy,608.14,5,275.0,-143.0,190.14
+2026 YTD,DUVEL Tripel Hop Citra Belgian IPA 330ml,Beer,598.67,36,210.6,-50.6,337.47
+2026 YTD,White Wine-Happy Hours,Wine By Glass,584.4,49,0.0,0.0,584.4
+2026 YTD,Casarena DNA Cabernet Sauvignon 2019,Red - Argentina,562.84,4,218.0,-150.0,194.84
+2026 YTD,Palazzo di Varignana Villa Amagioia Brut Blanc de Noirs NV,Sparkling - Italy,559.21,7,168.77,-161.5,228.94
+2026 YTD,Mannen Jumai Daiginjo Nama Genshu,Sake,556.94,4,220.0,-134.0,202.94
+2026 YTD,ZUBROWKA Biala Vodka,Liquor - Vodka/Rum/Tequila,530.36,4,144.0,-201.0,185.36
+2026 YTD,Château Laubès Oak Barrel 2019,Red - France,513.3,6,168.0,-105.5,239.8
+2026 YTD,Duck Rillettes,Food - Cheese,9.17,1,0.0,0.0,9.17
+2026 YTD,Buffalo Wings & Drumettes,Food - Snack,485.06,33,0.0,-8.0,477.06
+2026 YTD,Sweet Potato Fries,Food - Snack,466.17,40,40.5,-1.4,424.27
+2026 YTD,Highland Park Dark Origins 12 YO,Liquor - Whisky (Scotch),460.18,1,0.0,-240.0,220.18
+2026 YTD,Nicolas Feuillatte  Brut Millesime,Champagne - France,450.28,3,204.0,-120.0,126.28
+2026 YTD,Manon Cotes de Provence Blanc 2023,White - France,449.61,6,121.8,-112.0,215.81
+2026 YTD,Casarena Jamilla Single Vineyard Malbec 2021,Red - Argentina,448.79,4,178.0,-102.0,168.79
+2026 YTD,Louis Latour Pouilly Fuisse 2023,White - France,447.3,4,192.0,-84.0,171.3
+2026 YTD,Cheese Platter,Food - Cheese & cold cuts,444.66,15,270.0,-29.8,144.86
+2026 YTD,Shinbunshi (nwespaper) 65 Junmai muroka Nama Genshu,Sake,440.28,3,174.0,-110.0,156.28
+2026 YTD,Ramón Do Casar Lento 2019,White - Spain,427.71,4,171.72,-180.0,75.99
+2026 YTD,Chateau Kefraya Comte de M Rouge 2019,Red - Lebanon,422.13,3,195.0,-112.5,114.63
+2026 YTD,"Ca'Botta ""ALTA"" Valpolicella Ripasso Superiore DOC 2020",Red - Italy,396.93,5,107.2,-85.0,204.73
+2026 YTD,Crispy Prawn Paste Chicken Wing,Food - Snack,396.48,24,96.5,-1.8,298.18
+2026 YTD,Sausage Platter,Food - Grilled Sausage,385.32,14,0.0,0.0,385.32
+2026 YTD,Pieter Ferreira Rose 2013,Sparkling - South Africa,378.53,4,0.0,-140.0,238.53
+2026 YTD,French Fries,Food - Snack,376.0,34,26.6,-20.4,329.0
+2026 YTD,Ramirez de la Piscina Sta Ma Gran Reserva 2017,Red - Spain,364.78,3,138.0,-84.5,142.28
+2026 YTD,Chimay White Trappist Tripel,Beer,354.41,24,35.0,-25.6,293.81
+2026 YTD,Pierre Andre Bourgogne Hautes Côtes de Nuits Pinot Noir 2022,Red - France,352.94,4,152.0,-52.25,148.69
+2026 YTD,Domaine Du Cheval Blanc Medium Sweet,White - France,349.61,5,110.0,-67.5,172.11
+2026 YTD,Shinomine Kimoto Yamada Nishik Kimoto Junmai Muroka Nama Genshu,Sake,346.1,3,138.0,-80.5,127.6
+2026 YTD,Louis Latour Macon Lugny Les Genievres 2024,White - France,339.42,4,132.0,-55.25,152.17
+2026 YTD,Hendrick's - Another Hendrick's Gin,Liquor - Gin,333.95,2,129.0,-89.0,115.95
+2026 YTD,"Tenuta Mocenni Bindi Sergardi ""La Ghirlanda"" Chianti Classico DOCG 2022",Red - Italy,333.25,4,156.0,-36.0,141.25
+2026 YTD,Ca'Botta Merlot 2018,Red - Italy,329.48,5,74.9,-101.5,153.08
+2026 YTD,Steffen Trittenheimer Spatlese 2023,White - Germany,327.46,5,100.0,-77.0,150.46
+2026 YTD,Giró Ribot Treasure Black Label Brut NV,Sparkling - Spain,321.77,4,103.8,-119.25,98.72
+2026 YTD,Cantine Volpi Barbera D'Asti Superiore DOC 2022,Red - Italy,317.19,4,120.0,-63.75,133.44
+2026 YTD,Palazzo di Varignana Particella 63 2022,Red - Italy,309.19,4,86.12,-78.0,145.07
+2026 YTD,Chateau Kefraya Rouge 2020,Red - Lebanon,308.2,3,135.0,-66.0,107.2
+2026 YTD,Kirei Karakuchi 80,Sake,307.75,3,117.0,-60.5,130.25
+2026 YTD,Tenuta Sette Ponti Passi Di Orma Bolgheri DOC 2023,Red - Italy,293.33,3,105.0,-52.5,135.83
+2026 YTD,La Poderina Brunello Di Montalcino DOCG 2019,Red - Italy,281.42,2,134.0,-75.0,72.42
+2026 YTD,Pierre Andre Volnay 2020,Red - France,280.8,2,120.0,-67.5,93.3
+2026 YTD,SHINOBU Pure Malt Whisky Mizunara Oak Finish,Liquor - Whisky (Japan),280.18,1,0.0,-60.0,220.18
+2026 YTD,Bunnahabhain 12 YO,Liquor - Whisky (Scotch),278.03,1,104.0,-145.0,29.03
+2026 YTD,Craigellachie 13 YO,Liquor - Whisky (Scotch),278.03,1,98.0,-145.0,35.03
+2026 YTD,Edamame,Food - Snack,271.56,37,5.4,0.0,266.16
+2026 YTD,Chateau Boyd Cantenac - Jacques Boyd 2019,Red - France,271.44,2,118.0,-65.25,88.19
+2026 YTD,Nicolas Feuillatte Blanc de Blancs  Millesime 2019,Champagne - France,266.06,2,172.0,0.0,94.06
+2026 YTD,Marques De Caceres Reserva 2019,Red - Spain,264.61,3,114.0,-38.0,112.61
+2026 YTD,Bodega Vivaltus 'La Fleur'a Vivaltu,Red - Spain,262.66,2,114.0,-70.0,78.66
+2026 YTD,Quilt Cabernet Sauvignon 2022,Red - USA,262.08,2,106.0,-63.0,93.08
+2026 YTD,Harushika Junmai Ginjo Nama Genshu,Sake,261.5,2,78.0,-56.0,127.5
+2026 YTD,Casarena Reservado Malbec 2022,Red - Argentina,253.28,3,100.5,-67.5,85.28
+2026 YTD,Enzo Bartoli Barbera D’Asti Superiore DOCG 2020,Red - Italy,251.42,3,99.0,-45.0,107.42
+2026 YTD,Chateau Rouget - Le Carillon de Rouget 2018,Red - France,250.49,2,110.0,-33.75,106.74
+2026 YTD,Nagahama Roman Pure Malt 8 YO,Liquor - Whisky (Japan),249.94,1,90.0,-27.0,132.94
+2026 YTD,The Balvenie 12 YO Double Wood,Liquor - Whisky (Scotch),247.12,1,86.0,-104.0,57.12
+2026 YTD,Pierre Andre Beaune 2021,Red - France,243.4,2,82.0,-59.0,102.4
+2026 YTD,Furosen Usunigori Junmai Muroka Nama Genshu Yamahai,Sake,241.75,2,96.0,-39.0,106.75
+2026 YTD,Louis Latour Savigny-Les Beaune Rouge 2018,Red - France,240.68,2,98.0,-26.0,116.68
+2026 YTD,Enzo Bartoli Barolo DOCG 2020,Red - Italy,240.68,2,96.0,-26.0,118.68
+2026 YTD,Louis Latour Marsannay Rouge 2023,Red - France,240.68,2,93.0,-26.0,121.68
+2026 YTD,Sparkling Wine - Happy Hours,Wine By Glass,238.75,20,0.0,-2.6,236.15
+2026 YTD,Chateau Sociando Mallet - La Reserve de Sociando Mallet 2018,Red - France,234.52,2,96.0,-62.5,76.02
+2026 YTD,Castarede Armagnac 1988,Liquor - Cognac,229.36,1,183.0,0.0,46.36
+2026 YTD,Shinomine Yamahai Omachi Junmai Muroka Nama Genshu,Sake,225.14,2,84.0,-60.0,81.14
+2026 YTD,Chateau Branaire Ducru - Duluc De Branaire 2018,Red - France,225.14,2,96.8,-60.0,68.34
+2026 YTD,Marques De Caceres Gran Reserva 2018,Red - Spain,224.64,2,90.0,-54.0,80.64
+2026 YTD,Collefrisio Tenuta Giuliano Montepulciano d’Abruzzo DOC 2022,Red - Italy,224.48,3,51.09,-52.0,121.39
+2026 YTD,Matawhero Single Vineyard Sauvignon Blanc 2023,White - New Zealand,224.15,3,84.0,-48.0,92.15
+2026 YTD,White Wine,Wine By Glass,221.33,15,0.0,-13.9,207.43
+2026 YTD,Classic Fried Rice,Food - Lunch (11:30am-2:30pm),127.16,14,0.0,0.0,127.16
+2026 YTD,Kirei 92 Hattan Nishiki  Junmai Muroka Nama Genshu,Sake,219.48,2,84.0,-47.0,88.48
+2026 YTD,Chimay Blue Trappist Quadrupel 330ml,Beer,218.54,13,73.45,-46.8,98.29
+2026 YTD,Truffle Cheese Pizza,Food - Pizza,211.44,13,91.0,-5.2,115.24
+2026 YTD,Sparkling wine,Wine By Glass,206.17,14,0.0,-8.0,198.17
+2026 YTD,Bravium Russian Valley Chardonnay 2023,White - USA,204.56,2,88.0,-33.0,83.56
+2026 YTD,Steffen Riesling 'Steillage' 2023,White - Germany,200.47,3,69.0,-39.0,92.47
+2026 YTD,Charles Tort Merlot Syrah 2024,Red - France,197.57,3,47.67,-59.5,90.4
+2026 YTD,Collefrisio Magnolia Bianco IGT Terre Di Chieti 2024,White - Italy,197.47,3,53.4,-36.0,108.07
+2026 YTD,"Antichi Poderi Jerzu Cannonau Riserva ""Chuerra"" DOC 2020",Red - Italy,196.56,2,84.0,-47.25,65.31
+2026 YTD,Monkey 47 Gin,Liquor - Gin,196.13,1,69.5,-42.0,84.63
+2026 YTD,Podere Sapaio VOLPOLO Bolgheri 2022,Red - Italy,195.69,2,84.5,-36.75,74.44
+2026 YTD,Crispy Fried Oyster Mushrooms,Food - Snack,192.66,15,0.0,0.0,192.66
+2026 YTD,Spicy Olio With Prawns,Food - Pasta,191.74,11,0.0,0.0,191.74
+2026 YTD,Roasted Pork,Food - Grilled Sausage,14.68,1,7.5,0.0,7.18
+2026 YTD,German Sausage Platter,Food - Grilled,189.24,7,0.0,-3.0,186.24
+2026 YTD,Pieter Ferreira Blanc de Blancs 2013,Sparkling - South Africa,188.85,2,0.0,-65.0,123.85
+2026 YTD,Tenuta Sette Ponti Crognolo 2022,Red - Italy,184.31,2,66.0,-10.0,108.31
+2026 YTD,Corkage,Corkage,183.49,2,0.0,0.0,183.49
+2026 YTD,Terroir Al Límit Terroir Sense Fronteres Negre de Montsant 2023,Red - Spain,177.84,2,56.0,-42.75,79.09
+2026 YTD,Chateau De Monturon Saint Emilion Grand Cru 2021,Red - France,176.27,2,66.0,-23.75,86.52
+2026 YTD,Pierre Andre Chardonnay 2022,White - France,173.17,2,66.0,-41.75,65.42
+2026 YTD,Onion Rings,Food - Snack,170.64,14,6.0,0.0,164.64
+2026 YTD,Domaine Boris Champy Pommard 2022,Red - France,168.11,1,78.38,-36.0,53.73
+2026 YTD,Cantele Negroamaro Puglia IGP 2021,Red - Italy,167.37,2,74.0,-27.0,66.37
+2026 YTD,Domaine Lebreuil Bourgogne Mont Battois Rouge 2022,Red - France,166.62,2,72.2,-18.0,76.42
+2026 YTD,Chimay Red Trappist Dubbel,Beer,166.55,11,29.19,-61.6,75.76
+2026 YTD,Hacienda Solano Selection 2023,Red - Spain,162.7,2,58.8,-26.0,77.9
+2026 YTD,CIU CIU Larcrima di Morro D'Alba 2021,Red - Italy,159.82,2,68.0,-46.75,45.07
+2026 YTD,Cantine Volpi Dolcetto D'Alba DOC 2022,Red - Italy,158.07,2,60.0,-25.5,72.57
+2026 YTD,Caymus Napa Valley Cabernet Sauvignon 2023,Red - USA,157.37,1,89.0,-17.0,51.37
+2026 YTD,Loopy Fries,Food - Snack,157.05,13,6.2,-13.2,137.65
+2026 YTD,Steffen Spatburgunder Cuvee #28 2021,Red - Germany,151.41,2,54.0,-56.0,41.41
+2026 YTD,Domaine Lebreuil Pernand Vergelesses 1ER CRU Sous Fretille Blanc 2022,White - France,150.09,1,63.65,-40.0,46.44
+2026 YTD,Domaine Du Chapitre Moulin A Vent 2023,Red - France,149.76,2,66.0,-36.0,47.76
+2026 YTD,HONIG Napa Valley Cabernet Sauvignon 2021,Red - USA,148.11,1,66.0,-16.0,66.11
+2026 YTD,Chicken Yakitori (With Sauce),Food - Grilled,147.22,9,13.5,-5.2,128.52
+2026 YTD,Mini Wagyu Burger,Food - Main,146.87,16,0.0,-1.0,145.87
+2026 YTD,Fried fish cube,Food - Snack,146.79,10,0.0,0.0,146.79
+2026 YTD,Collefrisio Filare Montepulciano D’Abruzzo DOC 2022,Red - Italy,141.64,2,31.92,-48.75,60.97
+2026 YTD,Mini Crispy Fish Goujons,Food - Snack,141.53,10,4.0,-3.0,134.53
+2026 YTD,Tortilla Chips With Nacho Cheese Sauce,Food - Snack,141.28,11,0.0,0.0,141.28
+2026 YTD,Domaine Du Cheval Blanc Bordeaux White 2023,White - France,141.02,2,44.0,-41.25,55.77
+2026 YTD,Domaine Lebreuil Savigny Les Beaune 1ER CRU Les Sepentieres 2022,Red - France,140.09,1,69.83,-30.0,40.26
+2026 YTD,Chateau Roc de Villepreux 2022,Red - France,139.16,2,50.0,-18.75,70.41
+2026 YTD,Tortilla Chips With Nacho Cheese,Food - Snack,136.82,10,18.0,-1.5,117.32
+2026 YTD,"Ca'Botta ""INVERNO"" Rosso Verona IGT 2020",Red - Italy,136.31,2,29.06,-39.75,67.5
+2026 YTD,Caymus Zinfandel California 2021,Red - USA,136.02,1,52.0,-36.25,47.77
+2026 YTD,Domaine Lebreuil Pernand Vergelesses Belles Filles Blanc 2022,White - France,135.42,1,56.53,-29.0,49.89
+2026 YTD,Collefrisio Filare Trebbiano D’Abruzzo DOC 2024,White - Italy,132.2,2,29.44,-45.5,57.26
+2026 YTD,Giró Ribot Ab Origine Brut Rosé NV,Sparkling - Spain,132.2,2,40.38,-45.5,46.32
+2026 YTD,Truffle Fries,Food - Snack,132.11,9,0.0,0.0,132.11
+2026 YTD,Basilisco Aglianico del Vulture Superiore DOCG 2016,Red - Italy,131.33,1,64.0,-35.0,32.33
+2026 YTD,Louis Latour Marsannay Blanc 2022,White - France,131.33,1,52.0,-35.0,44.33
+2026 YTD,Miyako-Bijin Brown Label Yamahai Junmai Muroka Nama Genshu,Sake,121.95,1,50.0,-32.5,39.45
+2026 YTD,Kinoshita Shuzo Tamagawa Omachi Yamahai “3U” Junmai Muroka,Sake,121.41,1,49.0,-26.0,46.41
+2026 YTD,Veggie Spring Roll,Food - Snack,121.18,16,0.0,-1.0,120.18
+2026 YTD,Nagahama Roman 8 YO Blend Malt,Whisky By Glass,116.74,5,0.0,-25.0,91.74
+2026 YTD,M. Chapoutier Crozes-Hermitage Les Meysonniers Blanc 2024,White - France,116.74,1,43.0,-25.0,48.74
+2026 YTD,Braised Pork With Rice Set,Food - Lunch (11:30am-2:30pm),114.94,9,0.0,-2.0,112.94
+2026 YTD,Nicolas Feuillatte Reserve Exclusive Brut NV,Champagne - France,113.06,1,52.0,-36.0,25.06
+2026 YTD,Satsuma GoDai Beyound IMO Shochu,Shochu,112.57,1,48.0,-30.0,34.57
+2026 YTD,Urakasumi No.12 Junmai Kimoto,Sake,112.57,1,42.0,-30.0,40.57
+2026 YTD,Sutil Acrux Premium 2020,Red - Chile,112.57,1,46.0,-30.0,36.57
+2026 YTD,Quilt The Fabric Of The Land Red 2021,Red - USA,112.57,1,45.0,-30.0,37.57
+2026 YTD,Miyako-Bijin Blue Label Yamahai Junmai Muroka Nama Genshu,Sake,112.07,1,45.0,-24.0,43.07
+2026 YTD,HououBiden Junmai Daiginjo Shu,Sake,112.07,1,46.1,-24.0,41.97
+2026 YTD,Kozaemon Junmai Ginjo Omachi 55,Sake,112.07,1,48.7,-24.0,39.37
+2026 YTD,Dassai  45 Junmai Daiginjo,Sake,112.07,1,39.0,-24.0,49.07
+2026 YTD,Yuho Tamazakae  Junmai Muroka Nama Kimoto,Sake,111.08,1,44.0,-12.0,55.08
+2026 YTD,Eigashima Shuzo Yamato Damashi ”Special II“ Junmai Muraka,Sake,111.08,1,46.0,-12.0,53.08
+2026 YTD,Moo Ping,Food - Grilled Sausage,13.76,1,7.5,0.0,6.26
+2026 YTD,Margherita Pizza,Food - Pizza,110.09,7,49.0,0.0,61.09
+2026 YTD,Charles Tort Merlot 2024,Red - France,109.75,2,31.78,-7.0,70.97
+2026 YTD,Taiheizan Chogetsu Junmai Ginjo,Sake,107.88,1,40.0,-28.75,39.13
+2026 YTD,Harushika Junmai Ginjo Nama Genshu (Aged 210 days)),Sake,107.4,1,40.0,-23.0,44.4
+2026 YTD,M. Chapoutier Crozes-Hermitage Les Meysonniers Rouge 2023,Red - France,105.5,1,39.0,0.0,66.5
+2026 YTD,Smoked Duck Breast,Food - Grilled,104.95,8,25.5,-4.4,75.05
+2026 YTD,Grilled Saba Fish,Food - Snack,103.33,8,0.0,-7.0,96.33
+2026 YTD,Gensaka Sakaya Hachibei Junmai Ginjo,Sake,103.19,1,42.5,-27.5,33.19
+2026 YTD,HououBiden Wine Cell Junmai Ginjo,Sake,103.19,1,42.5,-27.5,33.19
+2026 YTD,Pomodora Rosa,Food - Pasta,102.88,7,0.0,-1.6,101.28
+2026 YTD,Veluta Carbonara,Food - Pasta,102.75,7,0.0,0.0,102.75
+2026 YTD,Kozaemon Junmai Yamadanishiki 65,Sake,101.83,1,42.3,-11.0,48.53
+2026 YTD,Bravium Russian Valley Pinot Noir 2022,Red - USA,101.83,1,44.0,-11.0,46.83
+2026 YTD,Collefrisio Le Cave Della Guardiuccia Brut – Abruzzo D.O.C. 2016,Sparkling - Italy,100.92,2,68.78,0.0,32.14
+2026 YTD,Karaage (Chief's Recipe),Food - Snack,99.08,6,0.0,0.0,99.08
+2026 YTD,Tenuta Sette Ponti Passi Di Orma Bolgheri DOC 2024,Red - Italy,98.06,1,35.0,-21.0,42.06
+2026 YTD,"Basilisco Aglianico del Vulture ""Teodosio"" DOC 2020",Red - Italy,93.81,1,41.0,-25.0,27.81
+2026 YTD,Italiano Salami,Food - Cheese & cold cuts,92.82,5,50.5,-13.0,29.32
+2026 YTD,Ballantine’s 17 YO Blend Malt,Whisky By Glass,91.95,4,0.0,-2.5,89.45
+2026 YTD,Sausage Fried Rice,Food - Lunch (11:30am-2:30pm),27.25,3,0.0,0.0,27.25
+2026 YTD,Chicken Karaage,Food - Snack,89.91,7,16.0,0.0,73.91
+2026 YTD,Beer Battered Sidewinders,Food - Snack,89.91,7,2.5,0.0,87.41
+2026 YTD,Chateau Kefraya  Blanc 2023,White - Lebanon,89.12,1,38.0,-23.75,27.37
+2026 YTD,La Poderina Rossoo Di Montalcino DOCG 2024,Red - Italy,89.12,1,67.0,-23.75,-1.63
+2026 YTD,"Castello ColleMassari ""Rigoleto"" Montecucco Rosso DOC 2020",Red - Italy,89.12,1,39.0,-23.75,26.37
+2026 YTD,Albert Glas Pinot Noir Black Label 2022,Red - Germany,87.94,1,32.0,-9.5,46.44
+2026 YTD,Domaine Du Chapitre Bourgogne Chardonnay 2022,White - France,84.8,1,35.0,-27.0,22.8
+2026 YTD,Marques Casa Concha Carmenere 2021,Red - Chile,84.43,1,36.0,-22.5,25.93
+2026 YTD,Valdemar Fincas Valdemacuco Roble Tinto 2019,Red - Spain,84.43,1,30.0,-22.5,31.93
+2026 YTD,Ichinokura Honjozo Mukansa Karakuchi,Sake,84.06,1,26.0,-18.0,40.06
+2026 YTD,Chateau Sergant Laland-de Pomerol Metal Label 2022,Red - France,83.31,1,44.0,-9.0,30.31
+2026 YTD,Beef Pepperoni Pizza,Food - Pizza,80.73,5,35.0,0.0,45.73
+2026 YTD,Cold Cut Platter,Food - Cheese & cold cuts,77.98,2,42.0,0.0,35.98
+2026 YTD,Chateau Kefraya Breteche Blanc 2024,White - Lebanon,75.05,1,32.0,-20.0,23.05
+2026 YTD,M. Chapoutier Luberon La Ciboise Blanc 2024,White - France,75.05,1,24.0,-20.0,31.05
+2026 YTD,Las Ninas Ella Cabernet Sauvignon Riserva 2022,Red - Chile,74.72,1,27.0,-16.0,31.72
+2026 YTD,Neethlingshof Chenin Blanc 2023,White - South Africa,74.06,1,28.8,-8.0,37.26
+2026 YTD,Beef Meatball,Food - Snack,73.79,5,0.0,-4.8,68.99
+2026 YTD,Castillo De Aresan Tempranillo 2022,Red - Spain,70.67,1,22.0,-22.5,26.17
+2026 YTD,"Ca'Botta ""ANTON""Benaco Bresciano IGT 2020",Red - Italy,70.67,1,15.31,-22.5,32.86
+2026 YTD,Collefrisio Morrecine Montepulciano d’Abruzzo DOC 2022,Red - Italy,70.67,1,16.29,-22.5,31.88
+2026 YTD,Leth Wagram Duett Gruner  Veltliner & Riesling (O),White - Austria,70.36,1,24.0,-18.75,27.61
+2026 YTD,Sutil Limited Release Cabernet Sauvignon 2021,Red - Chile,70.36,1,28.0,-18.75,23.61
+2026 YTD,Spicy Chicken Yakitori,Food - Grilled,66.2,4,10.0,-1.8,54.4
+2026 YTD,Charles Tort Grenache Syrah 2024,Red - France,65.95,1,15.89,-21.0,29.06
+2026 YTD,Chicken nuggets,Food - Snack,64.34,5,9.0,-1.4,53.94
+2026 YTD,Braised Pork With Noodle,Food - Main,64.22,5,0.0,0.0,64.22
+2026 YTD,Mentaiko Fries,Food - Snack,58.72,4,0.0,0.0,58.72
+2026 YTD,Spicy Olio With Prawn,Food - Lunch (11:30am-2:30pm),52.02,3,0.0,0.0,52.02
+2026 YTD,Braised Pork With Rice,Food - Main,51.54,4,0.0,-2.0,49.54
+2026 YTD,Braised Pork With Noodle Set,Food - Lunch (11:30am-2:30pm),51.01,4,0.0,0.0,51.01
+2026 YTD,Beef Lagsana,Food - Pasta,49.84,3,0.0,-3.6,46.24
+2026 YTD,Ichinokura Junmai 330ml,Sake,46.7,1,15.0,-10.0,21.7
+2026 YTD,Harushika Karakuchi Junmai 300ml,Sake,46.7,1,16.0,-10.0,20.7
+2026 YTD,Charcuterie and Cheese Platter,Food - Cheese & cold cuts,45.87,1,26.0,0.0,19.87
+2026 YTD,Dassai 45 (300ml),Sake,45.36,1,18.5,-4.9,21.96
+2026 YTD,Gai Ping,Food - Grilled Sausage,13.76,1,7.5,0.0,6.26
+2026 YTD,Valbrie (Brie Au Poivre),Food - Cheese & cold cuts,41.28,2,20.5,0.0,20.78
+2026 YTD,Capocollo,Food - Cheese & cold cuts,37.61,2,20.0,-11.0,6.61
+2026 YTD,Duck Terrine,Food - Cheese & cold cuts,36.94,2,19.3,-3.0,14.64
+2026 YTD,Chicken Herbal Soup With Rice,Food - Lunch (11:30am-2:30pm),18.17,2,0.0,0.0,18.17
+2026 YTD,Aged Truffle Sheep Cheese,Food - Cheese & cold cuts,36.86,2,12.0,-2.0,22.86
+2026 YTD,House Pour Gin,Gin By Glass,36.7,2,0.0,0.0,36.7
+2026 YTD,Chicken Herbal Soup With Noodle,Food - Main,18.56,2,0.0,-2.5,16.06
+2026 YTD,Yakitori,Food - Snack,33.03,2,0.0,0.0,33.03
+2026 YTD,Squid Champong Ramyun,Food - Lunch (11:30am-2:30pm),18.17,2,0.0,0.0,18.17
+2026 YTD,Truffle Bockwurst,Food - Grilled,33.03,2,0.0,0.0,33.03
+2026 YTD,Margherita,Food - Pizza,33.03,2,14.0,0.0,19.03
+2026 YTD,Taiwanese Sausage,Food - Grilled,29.49,2,12.0,-1.6,15.89
+2026 YTD,Frankfurter,Food - Grilled Sausage,29.36,2,0.0,0.0,29.36
+2026 YTD,Crispy Butterfly Shrimp,Food - Snack,27.52,2,0.0,0.0,27.52
+2026 YTD,Gambas AL Ajillo,Food - Snack,27.52,1,0.0,0.0,27.52
+2026 YTD,Chicken Popcorn,Food - Snack,25.69,2,0.0,0.0,25.69
+2026 YTD,Bak Kut Teh Rice Set,Food - Lunch (11:30am-2:30pm),25.5,2,0.0,0.0,25.5
+2026 YTD,Duck Terrine With Armagnac,Food - Cheese & cold cuts,24.01,1,12.5,-13.0,-1.49
+2026 YTD,Hendricks Flora Adora,Gin By Glass,23.35,1,0.0,-5.0,18.35
+2026 YTD,Laproaig 10 YO Single Malt,Whisky By Glass,23.14,1,0.0,-2.5,20.64
+2026 YTD,Truffle Trove Extra Mature Cheddar,Food - Cheese & cold cuts,22.94,1,11.25,0.0,11.69
+2026 YTD,Boucing Berry Matured Cheddar,Food - Cheese & cold cuts,22.94,1,11.7,0.0,11.24
+2026 YTD,Add on - Nuts & Dried Fruits,Food - Cheese & cold cuts,20.18,3,12.0,0.0,8.18
+2026 YTD,Rocamadour cheese,Food - Cheese & cold cuts,18.84,1,10.0,-6.0,2.84
+2026 YTD,Bockwurst,Food - Grilled,14.68,1,0.0,0.0,14.68
+2026 YTD,Spicy Mix Grill Platter,Food - Snack,18.35,1,0.0,0.0,18.35
+2026 YTD,Brie Cheese,Food - Cheese & cold cuts,18.35,1,8.8,0.0,9.55
+2026 YTD,Camembert,Food - Cheese & cold cuts,18.35,1,8.6,0.0,9.75
+2026 YTD,Truffle Goat Cheese,Food - Cheese & cold cuts,18.35,1,8.5,0.0,9.85
+2026 YTD,Garlic Butter Bread,Food - Grilled,5.5,1,0.0,0.0,5.5
+2026 YTD,Add On - Drink,Food - Lunch (11:30am-2:30pm),16.51,12,0.0,0.0,16.51
+2026 YTD,Roasted Peanuts,Food - Potato Chips & Nuts,14.71,4,0.0,-0.4,14.31
+2026 YTD,Mushroom Soup,Food - Soup,14.68,2,0.0,0.0,14.68
+2026 YTD,Cheese wiener,Food - Grilled Sausage,14.68,1,0.0,0.0,14.68
+2026 YTD,Golden Yolk Pasta,Food - Lunch (11:30am-2:30pm),14.59,1,0.0,0.0,14.59
+2026 YTD,Veluto Carbonara,Food - Lunch (11:30am-2:30pm),14.59,1,0.0,0.0,14.59
+2026 YTD,Add On - Tortilla Chips,Food - Snack,13.76,3,2.6,0.0,11.16
+2026 YTD,Crispy Breaded Butterfly Shrimp,Food - Snack,13.76,1,0.0,0.0,13.76
+2026 YTD,Salad,Food - Main,13.76,1,0.0,0.0,13.76
+2026 YTD,Chicken Cheese Cocktail Sausage,Food - Grilled,12.96,1,3.75,-1.4,7.81
+2026 YTD,Bak Kut Teh,Food - Main,12.84,1,0.0,0.0,12.84
+2026 YTD,Golden Nugget,Food - Snack,12.84,1,0.0,0.0,12.84
+2026 YTD,Double bottles wooden box with logo,Wooden box,11.26,1,6.5,-3.0,1.76
+2026 YTD,Fig & Walnut,Food - Cheese & cold cuts,11.01,1,6.0,0.0,5.01
+2026 YTD,Rocamadour cheese 35g,Food - Cheese,9.17,1,3.9,0.0,5.27
+2026 YTD,Vegetarian Fried Rice,Food - Lunch (11:30am-2:30pm),9.08,1,0.0,0.0,9.08
+2026 YTD,Single bottle wooden box with logo,Wooden box,8.0,1,4.5,-8.0,-4.5
+2026 YTD,Ginger Ale,Gin By Glass,7.67,4,0.0,-4.0,3.67
+2026 YTD,Soda,Gin By Glass,7.34,3,1.68,0.0,5.66
+2026 YTD,Add on- Duck Rillettes,Food - Cheese & cold cuts,7.34,1,2.8,0.0,4.54
+2026 YTD,Add on - Wafer Thin Crispbread,Food - Cheese & cold cuts,7.34,1,3.7,0.0,3.64
+2026 YTD,Add On - Egg,Food - Lunch (11:30am-2:30pm),6.42,7,0.0,0.0,6.42
+2026 YTD,Tonic,Non-alchohol Beverage,2.75,1,0.0,0.0,2.75
+2026 YTD,Potato Chips - Truffle,Food - Potato Chips & Nuts,3.7,1,0.0,-0.4,3.3
+2026 YTD,Peanut Crackers,Food - Potato Chips & Nuts,3.67,1,0.0,0.0,3.67
+2026 YTD,Potato Chips - Original,Food - Potato Chips & Nuts,3.67,1,0.0,0.0,3.67
+2026 YTD,Delight Mix,Food - Potato Chips & Nuts,3.67,1,0.0,0.0,3.67
+2026 YTD,Eco box-takeaway,Food - takeaway box,3.21,7,0.0,0.0,3.21
+2026 YTD,Coke,Non-alchohol Beverage,2.83,1,0.0,-1.0,1.83
+2026 YTD,Add On - Veggie,Food - Lunch (11:30am-2:30pm),2.75,1,0.0,0.0,2.75
+2026 YTD,Green Tea,Food - Drink,1.83,1,0.0,0.0,1.83
+2026 YTD,Add on - Rice,Food - Lunch (11:30am-2:30pm),1.83,1,0.0,0.0,1.83
+2026 YTD,Add On - Noodle,Food - Lunch (11:30am-2:30pm),1.83,1,0.0,0.0,1.83

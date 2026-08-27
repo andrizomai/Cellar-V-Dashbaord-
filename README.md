@@ -54,9 +54,13 @@ from January 2025 through August 2026 (about SGD 494/day), with a **65% gross ma
 while the online Shopify store's entire **3-year revenue history (SGD 176)** is less than half of one
 average day's in-person sales. The bigger levers are **in-person discount discipline** (SGD 66,613
 given away, 19.8% of gross sales — consistent in both 2025 and 2026 separately — concentrated in
-Liquor and Champagne/Sparkling) and **membership conversion** (members spend 2.5× more per item, but
-only 41 people signed up as members across the full period). Fixing the online store's stock-outs is
-still worth doing — just not first.
+Liquor and Champagne/Sparkling) and **membership conversion** (members average 2.5× more per sale,
+but only 41 people signed up as members across the full period). Fixing the online store's stock-outs
+is still worth doing — just not first.
+
+A **reporting-period filter** at the top of the app re-cuts every in-person figure and chart between
+the combined period, 2025 alone, and 2026 to date — which is how the "this pattern holds in both
+years" claim can be checked live rather than taken on trust.
 
 Submission Process
 

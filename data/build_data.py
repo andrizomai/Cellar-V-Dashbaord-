@@ -8,7 +8,6 @@ exports are refreshed:
 """
 import csv
 import json
-from collections import defaultdict
 from pathlib import Path
 
 RAW = Path(__file__).parent / "raw"
@@ -149,6 +148,8 @@ def main():
         json.dump(combined, f, indent=2)
 
     # --- by-year summary, for a year-over-year view --------------------------
+    # Carries every field the dashboard's period filter needs, so each KPI can
+    # be recomputed for one year alone as well as for the combined period.
     by_year = []
     for p in parsed:
         s = p["summary"]
@@ -161,63 +162,41 @@ def main():
             "discount_rate": s["total_discount"] / s["gross_sales"],
             "gross_profit_sgd": s["gross_profit"],
             "net_sales_sgd": s["net_sales"],
+            "total_cost_sgd": s["total_cost"],
             "gross_margin_net": s["gross_profit"] / s["net_sales"],
             "transactions": s["transactions"],
             "avg_sale_per_transaction": s["total_sales"] / s["transactions"],
             "total_pax": s["total_pax"],
             "customer_signups": s["customer_signups"],
+            "member_sales_sgd": s["member_sales_sgd"],
+            "nonmember_sales_sgd": s["nonmember_sales_sgd"],
+            "member_qty": s["member_qty"],
+            "nonmember_qty": s["nonmember_qty"],
         })
     with open(OUT / "pos_by_year.json", "w") as f:
         json.dump(by_year, f, indent=2)
 
-    # --- combined payment methods --------------------------------------------
-    payment_totals = defaultdict(float)
-    for p in parsed:
-        for method, amount in p["payment"].items():
-            payment_totals[method] += amount
-    with open(OUT / "pos_payment_methods.csv", "w", newline="") as f:
+    # --- long-format per-year breakdowns -------------------------------------
+    # One row per (period, category) and (period, product). The dashboard's
+    # period filter reads these directly; selecting "combined" just sums the
+    # periods back together, so there is a single source of truth per grain.
+    with open(OUT / "pos_category_by_year.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["method", "amount_sgd"])
-        for method, amount in sorted(payment_totals.items(), key=lambda kv: -kv[1]):
-            w.writerow([method, round(amount, 2)])
+        w.writerow(["period", "tab", "gross_sales_sgd", "quantity_sold", "discount_sgd"])
+        for p in parsed:
+            for tab, vals in p["category"].items():
+                w.writerow([p["label"], tab, round(vals["gross_sales_sgd"], 2),
+                            vals["quantity_sold"], round(vals["discount_sgd"], 2)])
 
-    # --- combined category (tab) sales ---------------------------------------
-    cat_totals = defaultdict(lambda: {"gross_sales_sgd": 0.0, "quantity_sold": 0, "discount_sgd": 0.0})
-    for p in parsed:
-        for tab, vals in p["category"].items():
-            cat_totals[tab]["gross_sales_sgd"] += vals["gross_sales_sgd"]
-            cat_totals[tab]["quantity_sold"] += vals["quantity_sold"]
-            cat_totals[tab]["discount_sgd"] += vals["discount_sgd"]
-    with open(OUT / "pos_category_sales.csv", "w", newline="") as f:
+    with open(OUT / "pos_products_by_year.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["tab", "gross_sales_sgd", "quantity_sold", "discount_sgd"])
-        for tab, vals in cat_totals.items():
-            w.writerow([tab, round(vals["gross_sales_sgd"], 2), vals["quantity_sold"], round(vals["discount_sgd"], 2)])
-
-    # --- combined product sales (top N by gross sales) ------------------------
-    product_totals = defaultdict(lambda: {"category": "", "gross_sales_sgd": 0.0, "quantity_sold": 0,
-                                           "total_cost_sgd": 0.0, "total_discount_sgd": 0.0, "total_profit_sgd": 0.0})
-    for p in parsed:
-        for name, vals in p["products"].items():
-            entry = product_totals[name]
-            entry["category"] = vals["category"]
-            entry["gross_sales_sgd"] += vals["gross_sales_sgd"]
-            entry["quantity_sold"] += vals["quantity_sold"]
-            entry["total_cost_sgd"] += vals["total_cost_sgd"]
-            entry["total_discount_sgd"] += vals["total_discount_sgd"]
-            entry["total_profit_sgd"] += vals["total_profit_sgd"]
-    ranked = sorted(
-        ({"product_name": name, **vals} for name, vals in product_totals.items()),
-        key=lambda r: r["gross_sales_sgd"], reverse=True,
-    )
-    with open(OUT / "pos_top_products.csv", "w", newline="") as f:
-        fieldnames = ["product_name", "category", "gross_sales_sgd", "quantity_sold",
-                      "total_cost_sgd", "total_discount_sgd", "total_profit_sgd"]
-        w = csv.DictWriter(f, fieldnames=fieldnames)
-        w.writeheader()
-        for r in ranked[:20]:
-            r = {k: (round(v, 2) if isinstance(v, float) else v) for k, v in r.items()}
-            w.writerow(r)
+        w.writerow(["period", "product_name", "category", "gross_sales_sgd",
+                    "quantity_sold", "total_cost_sgd", "total_discount_sgd", "total_profit_sgd"])
+        for p in parsed:
+            for name, vals in p["products"].items():
+                w.writerow([p["label"], name, vals["category"], round(vals["gross_sales_sgd"], 2),
+                            vals["quantity_sold"], round(vals["total_cost_sgd"], 2),
+                            round(vals["total_discount_sgd"], 2), round(vals["total_profit_sgd"], 2)])
 
     # --- combined discounts ---------------------------------------------------
     disc_amount = sum(p["discount"]["amount"] for p in parsed)
@@ -243,9 +222,8 @@ def main():
         for tab, n in sorted(counts.items(), key=lambda kv: -kv[1]):
             w.writerow([tab, n])
 
-    print("Wrote pos_summary.json, pos_by_year.json, pos_payment_methods.csv,")
-    print("      pos_category_sales.csv, pos_top_products.csv, pos_discounts.csv,")
-    print("      pos_catalog_composition.csv")
+    print("Wrote pos_summary.json, pos_by_year.json, pos_category_by_year.csv,")
+    print("      pos_products_by_year.csv, pos_discounts.csv, pos_catalog_composition.csv")
     print("\nCombined period:", combined["period"])
     print("Combined gross sales: SGD {:,.2f}".format(combined["gross_sales"]))
     print("Combined transactions:", combined["transactions"])
