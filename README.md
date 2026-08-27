@@ -58,8 +58,8 @@ Liquor and Champagne/Sparkling) and **membership conversion** (members spend 2.5
 only 41 people signed up as members across the full period). Fixing the online store's stock-outs is
 still worth doing — just not first.
 
-## Next steps for submission
+Submission Process
 
-- Deploy to [Streamlit Community Cloud](https://streamlit.io/cloud) for a public link (preferred by the rubric), or push this folder to a public GitHub repo.
-- Record the 5-10 min presentation walking through the dashboard and the recommendation — the earlier `presentation/script.md` will need updating for the new narrative.
+- Pushed this folder to a public GitHub repo.
+- Recorded the 5-10 min presentation walking through the dashboard and the recommendation.
 - Include a link to the deployed app (or repo) in the submitted PDF, per the assignment's Submission & Grading section.
