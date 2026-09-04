@@ -178,7 +178,8 @@ pos_category = (
     _cat_src.groupby("tab", as_index=False)[["gross_sales_sgd", "quantity_sold", "discount_sgd"]]
     .sum().sort_values("gross_sales_sgd", ascending=False)
 )
-pos_category["discount_rate"] = pos_category["discount_sgd"].abs() / pos_category["gross_sales_sgd"]
+pos_category["discount_abs"] = pos_category["discount_sgd"].abs()
+pos_category["discount_rate"] = pos_category["discount_abs"] / pos_category["gross_sales_sgd"]
 
 _prod_src = pos_products_by_year if is_combined else \
     pos_products_by_year[pos_products_by_year["period"] == selected_label]
@@ -187,7 +188,19 @@ pos_top_products = (
     .sort_values("gross_sales_sgd", ascending=False)
 )
 
-illustrative_recovery = pos_gross * 0.05  # a 5pp tighter discount rate, held out explicitly as illustrative
+# Discounting is best attacked where the dollars are, not where the rate is steepest:
+# a steep rate on a tiny category is worth little. Target the three categories giving
+# away the most money, and size the opportunity on those alone — so the quantified
+# impact matches the actions actually recommended.
+disc_ranked = pos_category.sort_values("discount_abs", ascending=False)
+top_disc_cat = disc_ranked.iloc[0]
+targeted = disc_ranked.head(3)
+targeted_names = list(targeted["tab"])
+targeted_phrase = ", ".join(targeted_names[:-1]) + f" and {targeted_names[-1]}"
+targeted_recovery = float((targeted["gross_sales_sgd"] * 0.05).sum())
+targeted_discount_share = float(targeted["discount_abs"].sum() / pos_discount)
+# For contrast: what tightening *everything* by 5 points would yield.
+illustrative_recovery = pos_gross * 0.05
 
 # Prose fragments that have to agree with whichever period is selected.
 period_phrase = "since the start of 2025" if is_combined else f"in {period_span_label}"
@@ -351,17 +364,25 @@ with tab3:
 
     left, right = st.columns(2)
     with left:
-        st.markdown("##### Discount rate by category")
-        disc_sorted = pos_category.sort_values("discount_rate", ascending=True)
+        st.markdown("##### Where the discount money actually goes")
+        disc_sorted = pos_category.sort_values("discount_abs", ascending=True)
         fig_disc = px.bar(
-            disc_sorted, x="discount_rate", y="tab", orientation="h",
-            labels={"discount_rate": "Discount rate", "tab": ""},
+            disc_sorted, x="discount_abs", y="tab", orientation="h",
+            labels={"discount_abs": "Discount given away (SGD)", "tab": ""},
+            text=disc_sorted.apply(
+                lambda r: f"{r['discount_abs']/1000:,.1f}k  ({r['discount_rate']:.0%})", axis=1),
+            custom_data=["discount_rate", "gross_sales_sgd"],
         )
-        fig_disc.update_traces(marker_color=ORANGE, hovertemplate="%{y}<br>%{x:.1%} discounted<extra></extra>")
+        fig_disc.update_traces(
+            marker_color=ORANGE, textposition="outside", cliponaxis=False,
+            hovertemplate="%{y}<br>SGD %{x:,.0f} discounted<br>"
+                          "%{customdata[0]:.1%} of its SGD %{customdata[1]:,.0f} gross<extra></extra>",
+        )
         fig_disc.update_layout(**PLOTLY_LAYOUT, height=340, showlegend=False)
-        fig_disc.update_layout(margin=dict(l=110, r=20, t=40, b=10))
-        fig_disc.update_xaxes(tickformat=".0%")
+        fig_disc.update_layout(margin=dict(l=10, r=10, t=40, b=10))
+        fig_disc.update_xaxes(range=[0, pos_category["discount_abs"].max() * 1.35])
         st.plotly_chart(fig_disc, use_container_width=True, theme=None)
+        st.caption("Bars are dollars given away; the percentage in each label is that category's discount rate.")
 
     with right:
         st.markdown("##### Average transaction value: member vs non-member")
@@ -376,14 +397,15 @@ with tab3:
         fig_mem.update_layout(**PLOTLY_LAYOUT, height=340, showlegend=False)
         st.plotly_chart(fig_mem, use_container_width=True, theme=None)
 
-    _top_disc = pos_category.sort_values("discount_rate", ascending=False).iloc[0]
-    _top_disc_share = _top_disc["gross_sales_sgd"] / pos_gross
+    _by_rate = pos_category.sort_values("discount_rate", ascending=False).iloc[0]
     st.caption(
-        f"{_top_disc['tab']} tops the discount-rate chart, but it's a very small category "
-        f"(SGD {_top_disc['gross_sales_sgd']:,.0f} in this period, {_top_disc_share:.1%} of sales) — "
-        "a couple of discounted bottles swing its rate a lot. Liquor and Champagne/Sparkling are the "
-        "categories worth acting on: they're both material in size and consistently among the most "
-        "discounted."
+        f"Rate and dollars point at different categories, which is why this chart leads with dollars. "
+        f"**{_by_rate['tab']}** has the steepest *rate* ({_by_rate['discount_rate']:.0%}), but on only "
+        f"SGD {_by_rate['gross_sales_sgd']:,.0f} of sales it gives away SGD {_by_rate['discount_abs']:,.0f}. "
+        f"**{top_disc_cat['tab']}** is discounted less steeply ({top_disc_cat['discount_rate']:.0%}) but on a "
+        f"far larger base, so it accounts for SGD {top_disc_cat['discount_abs']:,.0f} — "
+        f"{top_disc_cat['discount_abs']/pos_discount:.0%} of every discount dollar in this period. "
+        f"Chasing the steepest rate is not the same as recovering the most margin."
     )
 
     with st.container(border=True):
@@ -391,10 +413,11 @@ with tab3:
             f"Cellar V gave away SGD {pos_discount:,.0f} in discounts {period_phrase} — roughly "
             f"one dollar in five of gross sales, and remarkably steady year to year (about "
             f"{by_year.iloc[0]['discount_rate']:.1%} in 2025, {by_year.iloc[1]['discount_rate']:.1%} so "
-            f"far in 2026). Liquor and Champagne/Sparkling are discounted hardest, each losing close to "
-            f"a quarter to a third of their value to markdowns, while food is barely discounted at all. "
-            f"Meanwhile, member transactions already make up {member_txn_share:.0%} of the till, averaging "
-            f"{member_multiple:.1f} times more per sale than non-member transactions — yet only "
+            f"far in 2026). The steepest *rates* sit on small categories, but the money is concentrated: "
+            f"**{targeted_phrase}** together account for {targeted_discount_share:.0%} of every "
+            f"discount dollar, so that is where discipline pays. Food, by contrast, is barely discounted "
+            f"at all. Meanwhile, member transactions already make up {member_txn_share:.0%} of the till, "
+            f"averaging {member_multiple:.1f} times more per sale than non-member transactions — yet only "
             f"{pos_signups} people joined as members over that stretch, about "
             f"{signups_per_month:.0f} a month. That's a lever that's mostly sitting untouched."
         )
@@ -462,9 +485,13 @@ with tab5:
 The clearest opportunity isn't the website — it's tightening how the business runs day to day, in the room.
 
 **For the owner:**
-1. Rein in discounting on Liquor and Champagne/Sparkling specifically — the two categories giving
-   away the largest share of their value, roughly a quarter to a third — starting with a plain review
-   of what "Custom Discount" is meant to cover and when staff should actually use it.
+1. Start discount discipline with **{top_disc_cat['tab']}**, not with the steepest-rate category.
+   {top_disc_cat['tab']} is discounted at {top_disc_cat['discount_rate']:.0%} — unremarkable next to the
+   worst rate on the board — but on such a large base that it alone accounts for
+   SGD {top_disc_cat['discount_abs']:,.0f}, or {top_disc_cat['discount_abs']/pos_discount:.0%} of every
+   discount dollar. Together, **{targeted_phrase}** carry
+   {targeted_discount_share:.0%} of all discounting. Begin with a plain review of what
+   "Custom Discount" is meant to cover on those, and when staff should actually apply it.
 2. Make membership sign-up part of the conversation at checkout, rather than something guests have to
    ask about themselves. Members already average {member_multiple:.1f} times more per sale than
    non-members, but only {pos_signups} people joined as members {period_phrase}, against
@@ -472,16 +499,17 @@ The clearest opportunity isn't the website — it's tightening how the business 
 3. Separately, restock or take down the {n_bestsellers_oos} out-of-stock "Best seller" listings on
    Shopify. It's a cheap, quick fix — just not the one that moves the needle most.
 
-**For investors, the case for prioritizing this first:** a modest five-percentage-point tightening of
-the discount rate — from {discount_rate:.1%} toward roughly {discount_rate - 0.05:.0%} — would recover
-on the order of SGD {illustrative_recovery:,.0f} over a comparable period *(an illustration of scale,
-not a forecast — see Assumptions)*. That single lever is worth several times the online channel's
-entire three-year revenue of SGD {lifetime_revenue:,.0f}. The website is worth fixing, but it isn't
-where the return is.
+**For investors, the case for prioritizing this first:** tightening the discount rate by five
+percentage points on just those three categories would recover on the order of
+**SGD {targeted_recovery:,.0f}** over a comparable period *(an illustration of scale, not a forecast —
+see Assumptions)*. Applied across every category it would be about SGD {illustrative_recovery:,.0f},
+but that would mean touching food, which is already disciplined at under 2%. Either figure dwarfs the
+online channel's entire three-year revenue of SGD {lifetime_revenue:,.0f} — the website is worth
+fixing, but it isn't where the return is.
 
-**What to watch:** the discount rate for Liquor and Champagne/Sparkling specifically (today, well
-above food's under-2% baseline), new member sign-ups per month (today, about two), and — lower
-priority — the online out-of-stock rate (today, {oos_rate:.0%}).
+**What to watch:** discount *dollars* by category — especially {top_disc_cat['tab']}, since that is
+where the money actually leaves — alongside the rate; new member sign-ups per month (today, about
+{signups_per_month:.0f}); and, lower priority, the online out-of-stock rate (today, {oos_rate:.0%}).
 """
     )
 
@@ -505,6 +533,11 @@ with tab6:
   is a ceiling on discretionary discounting — not evidence that any one promotion was a mistake.
   That said, the rate is close to identical in 2025 and 2026 separately, which is what makes it
   look like a pattern rather than noise.
+- The recovery figures assume a five-point rate cut leaves volume unchanged, which is the optimistic
+  case. Some of that discounting is presumably doing work — winning a table, moving slow stock, keeping
+  a regular loyal — so a portion of the "recovered" margin would show up as lost sales instead. The
+  honest read is an upper bound on the prize, and a reason to test the change on a few categories
+  before rolling it out rather than a number to bank.
 - The member-versus-non-member comparison is an average-transaction-value figure (member and
   non-member transaction counts sum exactly to total transactions in both years' exports), not a
   per-customer lifetime-value figure — a member who visits often is counted once per visit, not once
